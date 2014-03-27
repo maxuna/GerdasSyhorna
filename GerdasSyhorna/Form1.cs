@@ -28,9 +28,6 @@ namespace GerdasSyhorna
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*
-             * jsdjdjdjdsnjdnjdcnj
-            */
             var database = Database.OpenConnection(Resources.connectionString);
            
             //testar om användaren finns i databasen
