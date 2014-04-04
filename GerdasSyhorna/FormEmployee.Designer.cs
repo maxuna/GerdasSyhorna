@@ -166,6 +166,7 @@
             this.buttonChangeProduct.TabIndex = 9;
             this.buttonChangeProduct.Text = "Redigera vald produkt";
             this.buttonChangeProduct.UseVisualStyleBackColor = true;
+            this.buttonChangeProduct.Click += new System.EventHandler(this.buttonChangeProduct_Click);
             // 
             // FormEmployee
             // 
