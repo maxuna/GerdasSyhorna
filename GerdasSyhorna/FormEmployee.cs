@@ -103,7 +103,7 @@ namespace GerdasSyhorna
             {
                 try
                 {
-                    var supplierRow = database.SupplierFromId(supplierId).First();
+                    var supplierRow = database.SP_SupplierFromId(supplierId).First();
                     textBoxSupplier.Text = supplierRow.CompanyName + "\r\n" + supplierRow.Address + "\r\n" + supplierRow.Telephone;
                 }
                    
@@ -129,8 +129,17 @@ namespace GerdasSyhorna
 
         private void buttonAddProduct_Click(object sender, EventArgs e)
         {
-            FormAddProduct formAddProduct = new FormAddProduct();
+            FormAddOrChangeProduct formAddProduct = new FormAddOrChangeProduct("add");
             formAddProduct.Show();
         }
+
+        private void buttonChangeProduct_Click(object sender, EventArgs e)
+        {
+            FormAddOrChangeProduct formChangeProduct = new FormAddOrChangeProduct("change");
+            formChangeProduct.Show();
+          
+
+        }
+
     }
 }

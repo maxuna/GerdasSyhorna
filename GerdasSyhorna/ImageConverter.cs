@@ -15,10 +15,10 @@ namespace GerdasSyhorna
         {
             byte[] byteArray;
 
-
+            
             using (MemoryStream ms = new MemoryStream())
             {
-                image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                image.Save(ms, image.RawFormat);
                 byteArray = ms.ToArray();
 
             }
