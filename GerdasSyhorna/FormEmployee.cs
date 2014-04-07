@@ -29,7 +29,10 @@ namespace GerdasSyhorna
                 listViewProducts.Items.Add(lvi);
             }
 
-            
+            foreach (ColumnHeader item in listViewProducts.Columns)
+            {
+                item.Tag = false;
+            }
         }
 
        
@@ -44,31 +47,48 @@ namespace GerdasSyhorna
 
             //listan ordnar sig beroende på vilken kolumn man klickade på
             var table = (dynamic)null;
-
+            SimpleQuery dsdf;
+            
             switch (ch.Text)
             {
                 case "Pris":
-                    table = database.Products.All().OrderByPrice();
+                    if(ch.Tag.Equals(false))
+                    table = database.Products.All().OrderByPrice(); 
+                    else
+                        table = database.Products.All().OrderByPriceDescending(); 
                     break;
                     
                 case "Antal på order":
+                    if (ch.Tag.Equals(false))
                     table = database.Products.All().OrderByUnitsOnOrder();
+                    else
+                        table = database.Products.All().OrderByUnitsOnOrderDescending();
                     break;
 
                 case "Kategori":
+                    if (ch.Tag.Equals(false))
                     table = database.Products.All().OrderByCategory();
+                    else
+                        table = database.Products.All().OrderByCategoryDescending();
                     break;
 
                 case "Antal i lager":
+                    if (ch.Tag.Equals(false))
                     table = database.Products.All().OrderByUnitsInStock();
+                    else
+                        table = database.Products.All().OrderByUnitsInStockDescending();
                     break;
 
                 case "Namn":
+                    if (ch.Tag.Equals(false))
                     table = database.Products.All().OrderByProductName();
+                    else
+                        table = database.Products.All().OrderByProductNameDescending();
                     break;
             }
 
-            
+            //kolumnens state, om t.ex. priset ska sorteras från lägsta eller högsta värdet
+            ch.Tag = ch.Tag.Equals(true) ? false : true;
 
             foreach (var product in table)
             {

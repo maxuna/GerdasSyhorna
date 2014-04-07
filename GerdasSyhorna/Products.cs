@@ -37,7 +37,7 @@ namespace GerdasSyhorna
             this.price = price;
             this.unitsInStock = unitsInStock;
             this.unitsInOrder = unitsInOrder;
-            this.imageFile = ;
+            //this.imageFile = ;
             this.description = description;
         }
 
