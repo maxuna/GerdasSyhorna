@@ -67,8 +67,9 @@ namespace GerdasSyhorna
 
                 case "Kategori":
                     if (ch.Tag.Equals(false))
-                    table = database.Products.All().OrderByCategory();
+                        table = database.Products.All().OrderByCategory();
                     else
+                        
                         table = database.Products.All().OrderByCategoryDescending();
                     break;
 
