@@ -1,6 +1,6 @@
 ﻿namespace GerdasSyhorna
 {
-    partial class FormAddOrChangeProduct
+    partial class FormProduct
     {
         /// <summary>
         /// Required designer variable.

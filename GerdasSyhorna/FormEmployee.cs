@@ -25,7 +25,7 @@ namespace GerdasSyhorna
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = product.ProductName;
                 lvi.SubItems.AddRange(new string[] { product.Category, product.Price.ToString(), product.UnitsInStock.ToString(), product.UnitsOnOrder.ToString()});
-                lvi.Tag = new List<object> {product.SupplierId, product.ImageFile};
+                lvi.Tag = new List<object> {product.SupplierId, product.ImageFile, product.ProductId};
                 listViewProducts.Items.Add(lvi);
             }
 
@@ -47,7 +47,7 @@ namespace GerdasSyhorna
 
             //listan ordnar sig beroende på vilken kolumn man klickade på
             var table = (dynamic)null;
-            SimpleQuery dsdf;
+           
             
             switch (ch.Text)
             {
@@ -150,15 +150,23 @@ namespace GerdasSyhorna
 
         private void buttonAddProduct_Click(object sender, EventArgs e)
         {
-            FormAddOrChangeProduct formAddProduct = new FormAddOrChangeProduct("add");
+            FormProduct formAddProduct = new FormProduct();
+            
             formAddProduct.Show();
         }
 
         private void buttonChangeProduct_Click(object sender, EventArgs e)
         {
-            FormAddOrChangeProduct formChangeProduct = new FormAddOrChangeProduct("change");
-            formChangeProduct.Show();
-          
+            if (listViewProducts.SelectedItems.Count != 1)
+            {
+                return;
+            }
+            //hämtar den valda produktens id ifrån tabellen
+            int productId = (int)((listViewProducts.SelectedItems[0].Tag as List<object>)[2]);
+            
+            FormProduct FormChangeProduct = new ChangeProduct(productId);
+            FormChangeProduct.Show();
+            
 
         }
 
