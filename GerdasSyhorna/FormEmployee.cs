@@ -18,7 +18,28 @@ namespace GerdasSyhorna
             InitializeComponent();
             var database = Database.OpenConnection(Resources.connectionString);
 
+            var productCounts = database.SP_ProductCount(0, 0, 0).OutputValues;
+             
             
+            //sätter in lite produktinfo i några labels
+            foreach (var item in productCounts)
+            {
+                if(item.Key == "rowCount")
+                {
+                    
+                    labelP.Text += item.Value.ToString();
+                }
+                else if (item.Key == "rowCountWithImage")
+                {
+                    labelPWithImage.Text += item.Value.ToString();
+                }
+                else if (item.Key == "rowCountWithSupplier")
+                {
+                    labelPWithSupplier.Text += item.Value.ToString();
+                }
+               
+            }
+
 
             foreach (var product in database.Products.All())
             {
@@ -44,7 +65,7 @@ namespace GerdasSyhorna
             listViewProducts.Items.Clear();
             ColumnHeader ch = listViewProducts.Columns[e.Column];
             var database = Database.OpenConnection(Resources.connectionString);
-
+            
             //listan ordnar sig beroende på vilken kolumn man klickade på
             var table = (dynamic)null;
            

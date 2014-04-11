@@ -42,7 +42,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonAddProduct = new System.Windows.Forms.Button();
             this.buttonChangeProduct = new System.Windows.Forms.Button();
+            this.labelPWithImage = new System.Windows.Forms.Label();
+            this.labelP = new System.Windows.Forms.Label();
+            this.labelPWithSupplier = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listViewProducts
@@ -168,11 +173,54 @@
             this.buttonChangeProduct.UseVisualStyleBackColor = true;
             this.buttonChangeProduct.Click += new System.EventHandler(this.buttonChangeProduct_Click);
             // 
+            // labelPWithImage
+            // 
+            this.labelPWithImage.AutoSize = true;
+            this.labelPWithImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPWithImage.Location = new System.Drawing.Point(20, 56);
+            this.labelPWithImage.Name = "labelPWithImage";
+            this.labelPWithImage.Size = new System.Drawing.Size(122, 13);
+            this.labelPWithImage.TabIndex = 10;
+            this.labelPWithImage.Text = "Produkter med Bild: ";
+            // 
+            // labelP
+            // 
+            this.labelP.AutoSize = true;
+            this.labelP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelP.Location = new System.Drawing.Point(20, 30);
+            this.labelP.Name = "labelP";
+            this.labelP.Size = new System.Drawing.Size(102, 13);
+            this.labelP.TabIndex = 11;
+            this.labelP.Text = "Antal produkter: ";
+            // 
+            // labelPWithSupplier
+            // 
+            this.labelPWithSupplier.AutoSize = true;
+            this.labelPWithSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPWithSupplier.Location = new System.Drawing.Point(20, 85);
+            this.labelPWithSupplier.Name = "labelPWithSupplier";
+            this.labelPWithSupplier.Size = new System.Drawing.Size(162, 13);
+            this.labelPWithSupplier.TabIndex = 12;
+            this.labelPWithSupplier.Text = "Produkter med Leverantör: ";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.labelPWithImage);
+            this.groupBox1.Controls.Add(this.labelPWithSupplier);
+            this.groupBox1.Controls.Add(this.labelP);
+            this.groupBox1.Location = new System.Drawing.Point(759, 53);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(220, 318);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Allmän Produktinfo";
+            // 
             // FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 439);
+            this.ClientSize = new System.Drawing.Size(991, 439);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonChangeProduct);
             this.Controls.Add(this.buttonAddProduct);
             this.Controls.Add(this.label2);
@@ -185,6 +233,8 @@
             this.Name = "FormEmployee";
             this.Text = "FormEmployee";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,5 +256,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonAddProduct;
         private System.Windows.Forms.Button buttonChangeProduct;
+        private System.Windows.Forms.Label labelPWithImage;
+        private System.Windows.Forms.Label labelP;
+        private System.Windows.Forms.Label labelPWithSupplier;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
