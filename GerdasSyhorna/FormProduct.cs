@@ -18,7 +18,15 @@ namespace GerdasSyhorna
         public FormProduct()
         {
             InitializeComponent();
+            var database = Database.OpenConnection(Resources.connectionString);
+            ComboBox supplierBox = (this.Controls.Find("comboBoxSupplier", false)[0] as ComboBox);
 
+            foreach (var item in database.Suppliers)
+            {
+                ComboBoxItem cbItem = new ComboBoxItem() { Text = item.CompanyName, Value = item };
+
+                supplierBox.Items.Add(cbItem);
+            }
             
         }
 
@@ -29,6 +37,7 @@ namespace GerdasSyhorna
 
            byte[] binaryImage = ImageConverter.ToByteArray(pictureBox1.BackgroundImage);
 
+            //sätter in den nya produkten i databasen
             var productInsert = database.Products.Insert(ProductName: textBoxName.Text, Category: textBoxCategory.Text, Price: (float)numericUpDownPrice.Value,
                 UnitsInStock: (short)numericUpDownUnitsInStock.Value, ImageFile: binaryImage);
            
@@ -54,8 +63,8 @@ namespace GerdasSyhorna
     public class ChangeProduct : FormProduct
     {
         int id;
+
        
-        
 
         public ChangeProduct(int id)
         {
@@ -70,11 +79,12 @@ namespace GerdasSyhorna
 
             this.id = id;
 
-
+            //ger rutorna nuvarande värde hos produkten
             this.Controls.Find("textBoxName", false)[0].Text = product.ProductName;
             this.Controls.Find("textBoxCategory", false)[0].Text = product.Category;
             (this.Controls.Find("numericUpDownPrice", false)[0] as NumericUpDown).Value = (decimal)product.Price;
             (this.Controls.Find("numericUpDownUnitsInStock", false)[0] as NumericUpDown).Value = (decimal)product.UnitsInStock;
+            (this.Controls.Find("comboBoxSupplier", false)[0] as ComboBox).Text = database.SP_SupplierFromId(product.SupplierId).First().CompanyName;
 
             
         }
@@ -90,6 +100,7 @@ namespace GerdasSyhorna
             float price = (float)(this.Controls.Find("numericUpDownPrice", false)[0] as NumericUpDown).Value;
             short inStock = (short)(this.Controls.Find("numericUpDownUnitsInStock", false)[0] as NumericUpDown).Value;
 
+            //ersätter produkten i databasen
             var updateProduct = database.Products.UpdateById(Id: id, ProductName: name, Category: category, Price: price, UnitsInStock: inStock);
         }
 
