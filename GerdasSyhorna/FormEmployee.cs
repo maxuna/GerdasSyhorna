@@ -18,10 +18,11 @@ namespace GerdasSyhorna
             InitializeComponent();
             var database = Database.OpenConnection(Resources.connectionString);
 
+            //Stored proc som retunerar info ifrån produkttabellen
             var productCounts = database.SP_ProductCount(0, 0, 0).OutputValues;
              
             
-            //sätter in lite produktinfo i några labels
+          
             foreach (var item in productCounts)
             {
                 if(item.Key == "rowCount")
@@ -117,7 +118,7 @@ namespace GerdasSyhorna
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = product.ProductName;
                 lvi.SubItems.AddRange(new string[] { product.Category, product.Price.ToString(), product.UnitsInStock.ToString(), product.UnitsOnOrder.ToString()});
-                lvi.Tag = new List<object> {product.SupplierId, product.ImageFile};
+                lvi.Tag = new List<object> {product.SupplierId, product.ImageFile, product.ProductId};
                 listViewProducts.Items.Add(lvi);
             }
         }
@@ -188,6 +189,44 @@ namespace GerdasSyhorna
             FormProduct FormChangeProduct = new ChangeProduct(productId);
             FormChangeProduct.Show();
             
+
+        }
+
+        private void buttonSuppliers_Click(object sender, EventArgs e)
+        {
+            FormSupplier formSupplier = new FormSupplier();
+            formSupplier.Show();
+        }
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            var database = Database.OpenConnection(Resources.connectionString);
+
+            listViewProducts.Items.Clear();
+
+            foreach (var product in database.Products.All())
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = product.ProductName;
+                lvi.SubItems.AddRange(new string[] { product.Category, product.Price.ToString(), product.UnitsInStock.ToString(), product.UnitsOnOrder.ToString() });
+                lvi.Tag = new List<object> { product.SupplierId, product.ImageFile, product.ProductId };
+                listViewProducts.Items.Add(lvi);
+            }
+
 
         }
 

@@ -46,6 +46,8 @@
             this.labelP = new System.Windows.Forms.Label();
             this.labelPWithSupplier = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonSuppliers = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -215,11 +217,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Allmän Produktinfo";
             // 
+            // buttonSuppliers
+            // 
+            this.buttonSuppliers.Location = new System.Drawing.Point(539, 173);
+            this.buttonSuppliers.Name = "buttonSuppliers";
+            this.buttonSuppliers.Size = new System.Drawing.Size(79, 21);
+            this.buttonSuppliers.TabIndex = 14;
+            this.buttonSuppliers.Text = "Leverantörer";
+            this.buttonSuppliers.UseVisualStyleBackColor = true;
+            this.buttonSuppliers.Click += new System.EventHandler(this.buttonSuppliers_Click);
+            // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Location = new System.Drawing.Point(127, 25);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(92, 23);
+            this.buttonRefresh.TabIndex = 15;
+            this.buttonRefresh.Text = "Uppdatera lista";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
             // FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 439);
+            this.Controls.Add(this.buttonRefresh);
+            this.Controls.Add(this.buttonSuppliers);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonChangeProduct);
             this.Controls.Add(this.buttonAddProduct);
@@ -260,5 +284,7 @@
         private System.Windows.Forms.Label labelP;
         private System.Windows.Forms.Label labelPWithSupplier;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button buttonSuppliers;
+        private System.Windows.Forms.Button buttonRefresh;
     }
 }

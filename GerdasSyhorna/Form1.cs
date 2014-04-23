@@ -22,12 +22,14 @@ namespace GerdasSyhorna
         {
             FormEmployee formEmployee = new FormEmployee();
             formEmployee.Show();
+            
             InitializeComponent();
             
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             var database = Database.OpenConnection(Resources.connectionString);
            
             //testar om användaren finns i databasen
@@ -64,6 +66,16 @@ namespace GerdasSyhorna
                 MessageBox.Show("fel användarnamn/lösenord");
             }
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void Form1_Leave(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }
