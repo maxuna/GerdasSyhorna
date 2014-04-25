@@ -61,7 +61,7 @@ namespace GerdasSyhorna {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\max\Documents\GitHub\GerdasSyhorna\GerdasSyhornaData.mdf;Integrated Security=True;Connect Timeout=30.
+        ///   Looks up a localized string similar to Data Source=78.70.198.172\SQLEXPRESS;Initial Catalog=GerdasSyhorna;User ID=administrator;Password=123456.
         /// </summary>
         internal static string connectionString {
             get {

@@ -39,6 +39,8 @@
             this.buttonAddPic = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.numericUpDownUnitsInStock = new System.Windows.Forms.NumericUpDown();
+            this.comboBoxSupplier = new System.Windows.Forms.ComboBox();
+            this.labelSupplier = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUnitsInStock)).BeginInit();
@@ -72,9 +74,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(18, 87);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Category:";
+            this.label2.Text = "Kategori:";
             // 
             // label3
             // 
@@ -109,7 +111,7 @@
             // 
             // buttonAddProduct
             // 
-            this.buttonAddProduct.Location = new System.Drawing.Point(161, 266);
+            this.buttonAddProduct.Location = new System.Drawing.Point(158, 315);
             this.buttonAddProduct.Name = "buttonAddProduct";
             this.buttonAddProduct.Size = new System.Drawing.Size(111, 39);
             this.buttonAddProduct.TabIndex = 9;
@@ -148,11 +150,33 @@
             this.numericUpDownUnitsInStock.Size = new System.Drawing.Size(92, 20);
             this.numericUpDownUnitsInStock.TabIndex = 12;
             // 
-            // FormAddProduct
+            // comboBoxSupplier
+            // 
+            this.comboBoxSupplier.FormattingEnabled = true;
+            this.comboBoxSupplier.Items.AddRange(new object[] {
+            "Ingen"});
+            this.comboBoxSupplier.Location = new System.Drawing.Point(21, 267);
+            this.comboBoxSupplier.Name = "comboBoxSupplier";
+            this.comboBoxSupplier.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSupplier.TabIndex = 13;
+            this.comboBoxSupplier.Text = "Ingen";
+            // 
+            // labelSupplier
+            // 
+            this.labelSupplier.AutoSize = true;
+            this.labelSupplier.Location = new System.Drawing.Point(18, 251);
+            this.labelSupplier.Name = "labelSupplier";
+            this.labelSupplier.Size = new System.Drawing.Size(61, 13);
+            this.labelSupplier.TabIndex = 14;
+            this.labelSupplier.Text = "Leverantör:";
+            // 
+            // FormProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 317);
+            this.ClientSize = new System.Drawing.Size(433, 366);
+            this.Controls.Add(this.labelSupplier);
+            this.Controls.Add(this.comboBoxSupplier);
             this.Controls.Add(this.numericUpDownUnitsInStock);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonAddPic);
@@ -164,7 +188,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxCategory);
             this.Controls.Add(this.textBoxName);
-            this.Name = "FormAddProduct";
+            this.Name = "FormProduct";
             this.Text = "FormAddProduct";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -176,16 +200,18 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.TextBox textBoxCategory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDownPrice;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonAddProduct;
         private System.Windows.Forms.Button buttonAddPic;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDownUnitsInStock;
+        private System.Windows.Forms.Label labelSupplier;
+        internal System.Windows.Forms.TextBox textBoxName;
+        internal System.Windows.Forms.TextBox textBoxCategory;
+        internal System.Windows.Forms.NumericUpDown numericUpDownPrice;
+        internal System.Windows.Forms.PictureBox pictureBox1;
+        internal System.Windows.Forms.NumericUpDown numericUpDownUnitsInStock;
+        internal System.Windows.Forms.ComboBox comboBoxSupplier;
     }
 }
