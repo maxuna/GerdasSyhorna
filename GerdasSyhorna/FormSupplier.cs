@@ -22,9 +22,9 @@ namespace GerdasSyhorna
         {
             var database = Database.OpenConnection(Resources.connectionString);
 
-            database.Products.Insert(CompanyName: textBoxName.Text, Address: textBoxAddress.Text, Telephone: textBoxTelephone.Text, Email: textBoxEmail);
-             
-           
+            database.Suppliers.Insert(CompanyName: textBoxName.Text, Address: textBoxAddress.Text, Telephone: textBoxTelephone.Text, Email: textBoxEmail);
+
+            this.Dispose();
         }
 
         private void buttonUpdateSupplier_Click(object sender, EventArgs e)
@@ -32,6 +32,7 @@ namespace GerdasSyhorna
             var database = Database.OpenConnection(Resources.connectionString);
 
             database.Products.Update(CompanyName: textBoxName2.Text, Address: textBoxAddress2.Text, Telephone2: textBoxTelephone2.Text, Email: textBoxEmail2.Text);
+            
         }
 
        
