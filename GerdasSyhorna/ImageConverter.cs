@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.IO;
+using System.Drawing.Imaging;
 
 namespace GerdasSyhorna
 {
@@ -18,7 +19,17 @@ namespace GerdasSyhorna
             
             using (MemoryStream ms = new MemoryStream())
             {
-                image.Save(ms, image.RawFormat);
+                try
+                {
+                    image.Save(ms, image.RawFormat);
+                }
+                catch (System.Runtime.InteropServices.ExternalException)
+                {
+                    //bugg som kräver att bilden förnyas
+                    Bitmap bitmap = new Bitmap(image);
+                    bitmap.Save(ms, ImageFormat.Bmp);
+                }
+             
                 byteArray = ms.ToArray();
 
             }

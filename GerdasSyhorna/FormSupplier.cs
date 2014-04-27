@@ -13,6 +13,9 @@ namespace GerdasSyhorna
 {
     public partial class FormSupplier : Form
     {
+        //id på leverantören som ligger framme i redigeringen av leverantörer
+        int currentSupplierId = 0;
+
         public FormSupplier()
         {
             InitializeComponent();
@@ -22,7 +25,7 @@ namespace GerdasSyhorna
         {
             var database = Database.OpenConnection(Resources.connectionString);
 
-            database.Suppliers.Insert(CompanyName: textBoxName.Text, Address: textBoxAddress.Text, Telephone: textBoxTelephone.Text, Email: textBoxEmail);
+            database.Suppliers.Insert(CompanyName: textBoxName.Text, Address: textBoxAddress.Text, Telephone: textBoxTelephone.Text, Email: textBoxEmail.Text);
 
             this.Dispose();
         }
@@ -31,8 +34,8 @@ namespace GerdasSyhorna
         {
             var database = Database.OpenConnection(Resources.connectionString);
 
-            database.Products.Update(CompanyName: textBoxName2.Text, Address: textBoxAddress2.Text, Telephone2: textBoxTelephone2.Text, Email: textBoxEmail2.Text);
-            
+            database.Suppliers.UpdateBySupplierId(SupplierId: currentSupplierId ,CompanyName: textBoxName2.Text, Address: textBoxAddress2.Text, Telephone2: textBoxTelephone2.Text, Email: textBoxEmail2.Text);
+            this.Dispose();
         }
 
        
@@ -45,6 +48,7 @@ namespace GerdasSyhorna
             textBoxEmail2.Text = Supplier.Email;
             textBoxName2.Text = Supplier.CompanyName;
             textBoxTelephone2.Text = Supplier.Telephone;
+            currentSupplierId = Supplier.SupplierId;
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)

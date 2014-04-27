@@ -103,7 +103,7 @@ namespace GerdasSyhorna
 
             if(product.ImageFile != null)
             pictureBox1.BackgroundImage = ImageConverter.ImageFromByteArray(product.ImageFile);
-
+            
             this.id = id;
             
             //ger rutorna nuvarande värde hos produkten
