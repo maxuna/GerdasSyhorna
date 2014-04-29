@@ -18,6 +18,11 @@ namespace GerdasSyhorna
             InitializeComponent();
             var database = Database.OpenConnection(Resources.connectionString);
 
+
+
+            
+            
+            
             //Stored proc som retunerar info ifrån produkttabellen
             var productCounts = database.SP_ProductCount(0, 0, 0).OutputValues;
              

@@ -22,23 +22,27 @@ namespace GerdasSyhorna
         }
 
         
-        public void CreateOrder(int customerId, DateTime orderDate, Dictionary<string, short> productsAndQuantity)
+        public void CreateOrder(int customerId, DateTime orderDate, Dictionary<int, Tuple<short, byte>> productQuantityDiscount)
         {
             var database = Database.OpenConnection(Resources.connectionString);
 
             database.Order.Insert(CustomerId: customerId, OrderDate: orderDate);
 
-            OrderDetails orderDetails = new OrderDetails(productsAndQuantity);
+            
+
+            OrderDetails orderDetails = new OrderDetails(productQuantityDiscount, database.SP_LastOrder.OrderId);
         }
     }
 
     class OrderDetails : Order
     {
-        public OrderDetails(Dictionary<string, short> paq)
+        public OrderDetails(Dictionary<int, Tuple<short, byte>> pqd, int orderId)
         {
-            foreach (var item in paq)
+            var db = Database.OpenConnection(Resources.connectionString);
+
+            foreach (var item in pqd)
             {
-                
+                db.OrderDetails.Insert(OrderId: orderId, Discount: item.Value.Item2, Quantity: item.Value.Item1, ProductId: item.Key);
             }
         }
     }
