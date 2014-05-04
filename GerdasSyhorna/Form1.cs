@@ -20,8 +20,13 @@ namespace GerdasSyhorna
 
         public Form1()
         {
-            FormEmployee formEmployee = new FormEmployee();
-            formEmployee.Show();
+            //FormEmployee formEmployee = new FormEmployee();
+            //formEmployee.Show();
+
+            Order order = new Order();
+            Dictionary<int, Tuple<
+           // order.CreateOrder(1, DateTime.Now, )
+            
             
             InitializeComponent();
             
