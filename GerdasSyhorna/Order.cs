@@ -30,7 +30,7 @@ namespace GerdasSyhorna
 
             
 
-            OrderDetails orderDetails = new OrderDetails(productQuantityDiscount, database.SP_LastOrder.OrderId);
+            OrderDetails orderDetails = new OrderDetails(productQuantityDiscount, database.SP_LastOrder().First().OrderId);
         }
     }
 
