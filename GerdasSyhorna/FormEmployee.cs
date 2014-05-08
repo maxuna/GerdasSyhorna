@@ -19,8 +19,8 @@ namespace GerdasSyhorna
             var database = Database.OpenConnection(Resources.connectionString);
 
 
-
-            
+            //sätter in rätt lager värde utifrån orderdetaljer
+            database.SP_UpdUnitsOnOrder();
             
             
             //Stored proc som retunerar info ifrån produkttabellen
