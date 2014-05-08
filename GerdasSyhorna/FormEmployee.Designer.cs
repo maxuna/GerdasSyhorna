@@ -51,6 +51,7 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.labelSearch = new System.Windows.Forms.Label();
             this.comboBoxSearch = new System.Windows.Forms.ComboBox();
+            this.buttonOrders = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +78,7 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "ProduktNamn";
+            this.columnHeader1.Text = "Produktnamn";
             this.columnHeader1.Width = 127;
             // 
             // columnHeader2
@@ -113,7 +114,7 @@
             // 
             this.labelSupplier.AutoSize = true;
             this.labelSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSupplier.Location = new System.Drawing.Point(534, 25);
+            this.labelSupplier.Location = new System.Drawing.Point(572, 25);
             this.labelSupplier.Name = "labelSupplier";
             this.labelSupplier.Size = new System.Drawing.Size(125, 25);
             this.labelSupplier.TabIndex = 2;
@@ -121,7 +122,7 @@
             // 
             // textBoxSupplier
             // 
-            this.textBoxSupplier.Location = new System.Drawing.Point(539, 53);
+            this.textBoxSupplier.Location = new System.Drawing.Point(577, 53);
             this.textBoxSupplier.Multiline = true;
             this.textBoxSupplier.Name = "textBoxSupplier";
             this.textBoxSupplier.ReadOnly = true;
@@ -132,17 +133,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(261, 322);
+            this.label1.Location = new System.Drawing.Point(399, 324);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(196, 32);
+            this.label1.Size = new System.Drawing.Size(153, 64);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Klicka på en produkt för att \r\nfå fram leverantör och bild\r\n";
+            this.label1.Text = "Klicka på en produkt \r\nför att få fram dess \r\nleverantör och bild.\r\n\r\n";
             // 
             // pictureBox
             // 
             this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(539, 257);
+            this.pictureBox.Location = new System.Drawing.Point(577, 257);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(169, 114);
             this.pictureBox.TabIndex = 6;
@@ -152,7 +153,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(534, 229);
+            this.label2.Location = new System.Drawing.Point(572, 229);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 25);
             this.label2.TabIndex = 7;
@@ -160,7 +161,7 @@
             // 
             // buttonAddProduct
             // 
-            this.buttonAddProduct.Location = new System.Drawing.Point(12, 303);
+            this.buttonAddProduct.Location = new System.Drawing.Point(12, 315);
             this.buttonAddProduct.Name = "buttonAddProduct";
             this.buttonAddProduct.Size = new System.Drawing.Size(169, 35);
             this.buttonAddProduct.TabIndex = 8;
@@ -170,7 +171,7 @@
             // 
             // buttonChangeProduct
             // 
-            this.buttonChangeProduct.Location = new System.Drawing.Point(12, 344);
+            this.buttonChangeProduct.Location = new System.Drawing.Point(12, 356);
             this.buttonChangeProduct.Name = "buttonChangeProduct";
             this.buttonChangeProduct.Size = new System.Drawing.Size(169, 35);
             this.buttonChangeProduct.TabIndex = 9;
@@ -213,7 +214,7 @@
             this.groupBox1.Controls.Add(this.labelPWithImage);
             this.groupBox1.Controls.Add(this.labelPWithSupplier);
             this.groupBox1.Controls.Add(this.labelP);
-            this.groupBox1.Location = new System.Drawing.Point(759, 53);
+            this.groupBox1.Location = new System.Drawing.Point(797, 53);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(220, 318);
             this.groupBox1.TabIndex = 13;
@@ -222,11 +223,11 @@
             // 
             // buttonSuppliers
             // 
-            this.buttonSuppliers.Location = new System.Drawing.Point(539, 173);
+            this.buttonSuppliers.Location = new System.Drawing.Point(206, 315);
             this.buttonSuppliers.Name = "buttonSuppliers";
-            this.buttonSuppliers.Size = new System.Drawing.Size(79, 21);
+            this.buttonSuppliers.Size = new System.Drawing.Size(169, 35);
             this.buttonSuppliers.TabIndex = 14;
-            this.buttonSuppliers.Text = "Leverantörer";
+            this.buttonSuppliers.Text = "Hantera leverantörer";
             this.buttonSuppliers.UseVisualStyleBackColor = true;
             this.buttonSuppliers.Click += new System.EventHandler(this.buttonSuppliers_Click);
             // 
@@ -265,11 +266,23 @@
             this.comboBoxSearch.Size = new System.Drawing.Size(102, 21);
             this.comboBoxSearch.TabIndex = 18;
             // 
+            // buttonOrders
+            // 
+            this.buttonOrders.Location = new System.Drawing.Point(206, 356);
+            this.buttonOrders.Name = "buttonOrders";
+            this.buttonOrders.Size = new System.Drawing.Size(169, 35);
+            this.buttonOrders.TabIndex = 19;
+            this.buttonOrders.Text = "Hantera ordrar";
+            this.buttonOrders.UseVisualStyleBackColor = true;
+            this.buttonOrders.Click += new System.EventHandler(this.buttonOrders_Click);
+            // 
             // FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 439);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1045, 424);
+            this.Controls.Add(this.buttonOrders);
             this.Controls.Add(this.comboBoxSearch);
             this.Controls.Add(this.labelSearch);
             this.Controls.Add(this.textBoxSearch);
@@ -320,5 +333,6 @@
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Label labelSearch;
         private System.Windows.Forms.ComboBox comboBoxSearch;
+        private System.Windows.Forms.Button buttonOrders;
     }
 }

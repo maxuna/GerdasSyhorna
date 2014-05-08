@@ -115,7 +115,7 @@ namespace GerdasSyhorna
                         table = database.Products.All().OrderByUnitsInStockDescending();
                     break;
 
-                case "Namn":
+                case "Produktnamn":
                     if (ch.Tag.Equals(false))
                     table = database.Products.All().OrderByProductName();
                     else
@@ -229,12 +229,17 @@ namespace GerdasSyhorna
         {
             var database = Database.OpenConnection(Resources.connectionString);
 
+            dynamic specifiedproducts;
 
-            var Specifiedproducts = database.SP_ProductSearch(textBoxSearch.Text, comboBoxSearch.Text);
+            if (textBoxSearch.Text != "")
+                specifiedproducts = database.SP_ProductSearch(textBoxSearch.Text, comboBoxSearch.Text);
+
+            else
+                specifiedproducts = database.Products.All();
 
             listViewProducts.Items.Clear();
 
-            foreach (var product in Specifiedproducts)
+            foreach (var product in specifiedproducts)
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = product.ProductName;
@@ -244,6 +249,12 @@ namespace GerdasSyhorna
             }
 
 
+        }
+
+        private void buttonOrders_Click(object sender, EventArgs e)
+        {
+            FormOrders formOrders = new FormOrders();
+            formOrders.Show();
         }
 
     }
