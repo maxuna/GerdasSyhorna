@@ -25,8 +25,16 @@ namespace GerdasSyhorna
             
             //Stored proc som retunerar info ifrån produkttabellen
             var productCounts = database.SP_ProductCount(0, 0, 0).OutputValues;
-             
+
+
+
+            List<ComboBoxItem> SearchboxItems = new List<ComboBoxItem>();
+            foreach (var item in listViewProducts.Columns)
+            {
+                comboBoxSearch.Items.Add((item as ColumnHeader).Text);
+            }
             
+
           
             foreach (var item in productCounts)
             {
@@ -221,9 +229,12 @@ namespace GerdasSyhorna
         {
             var database = Database.OpenConnection(Resources.connectionString);
 
+
+            var Specifiedproducts = database.SP_ProductSearch(textBoxSearch.Text, comboBoxSearch.Text);
+
             listViewProducts.Items.Clear();
 
-            foreach (var product in database.Products.All())
+            foreach (var product in Specifiedproducts)
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = product.ProductName;

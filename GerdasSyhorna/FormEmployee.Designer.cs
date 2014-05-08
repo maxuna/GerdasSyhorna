@@ -48,6 +48,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonSuppliers = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.comboBoxSearch = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -74,7 +77,7 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Namn";
+            this.columnHeader1.Text = "ProduktNamn";
             this.columnHeader1.Width = 127;
             // 
             // columnHeader2
@@ -229,7 +232,7 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(127, 25);
+            this.buttonRefresh.Location = new System.Drawing.Point(354, 28);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(92, 23);
             this.buttonRefresh.TabIndex = 15;
@@ -237,11 +240,39 @@
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(140, 30);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSearch.TabIndex = 16;
+            // 
+            // labelSearch
+            // 
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Location = new System.Drawing.Point(137, 9);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(44, 13);
+            this.labelSearch.TabIndex = 17;
+            this.labelSearch.Text = "Sökord:";
+            // 
+            // comboBoxSearch
+            // 
+            this.comboBoxSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSearch.FormattingEnabled = true;
+            this.comboBoxSearch.Location = new System.Drawing.Point(246, 29);
+            this.comboBoxSearch.Name = "comboBoxSearch";
+            this.comboBoxSearch.Size = new System.Drawing.Size(102, 21);
+            this.comboBoxSearch.TabIndex = 18;
+            // 
             // FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 439);
+            this.Controls.Add(this.comboBoxSearch);
+            this.Controls.Add(this.labelSearch);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonSuppliers);
             this.Controls.Add(this.groupBox1);
@@ -286,5 +317,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonSuppliers;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.ComboBox comboBoxSearch;
     }
 }
