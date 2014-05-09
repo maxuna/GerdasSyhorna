@@ -45,10 +45,10 @@ namespace GerdasSyhorna
                 (((Button)buyButtons[i]).Width) = 140;
                 (((Button)buyButtons[i]).Location) = new Point(720, 35);
                 (((Button)buyButtons[i]).Image) = Image.FromFile("../../Images/Buy_Button.png");
-                ((Button)buyButtons[i]).Click += new EventHandler(buyButton_Click);
+                //((Button)buyButtons[i]).Click += new EventHandler(buyButton_Click);
 
                 ((Products)Products[i]).Controls.Add(((Label)nameLabel[i]));
-                ((Label)nameLabel[i]).Text = "bajs";
+                ((Label)nameLabel[i]).Text = item.ProductName;
                 ((Label)nameLabel[i]).Location = new Point(140, 5);
                 ((Label)nameLabel[i]).Font = new Font("Times New Roman", 12.0F);
                 ((Label)nameLabel[i]).AutoSize = true;

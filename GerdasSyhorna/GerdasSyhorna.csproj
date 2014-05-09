@@ -183,6 +183,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Images\404-imagenotfound.jpg" />
+    <Content Include="Images\Buy_Button.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

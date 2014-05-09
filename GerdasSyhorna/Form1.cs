@@ -21,8 +21,8 @@ namespace GerdasSyhorna
         public Form1()
         {
 
-            //FormEmployee formEmployee = new FormEmployee();
-            //formEmployee.Show();
+            FormEmployee formEmployee = new FormEmployee();
+            formEmployee.Show();
 
             FormCustomer formCustomer = new FormCustomer();
             formCustomer.Show();
