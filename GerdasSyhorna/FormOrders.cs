@@ -22,12 +22,19 @@ namespace GerdasSyhorna
 
             foreach (var order in orders)
             {
-                treeViewOrders.Nodes.Add(order.FirstName + " " + order.LastName);
                 if (order.Status != null)
-                treeViewOrders.Nodes[treeViewOrders.Nodes.Count - 1].Nodes.Add(order.Status.ToString());
+                treeViewOrders.Nodes.Add(order.FirstName + " " + order.LastName + ":   " + order.Status);
 
                 else
-                    treeViewOrders.Nodes[treeViewOrders.Nodes.Count - 1].Nodes.Add("Ohanterad order");
+                    treeViewOrders.Nodes.Add(order.FirstName + " " + order.LastName + ":   Ohanterad Order");
+
+                var orderDetails = db.Orderdetails.FindAllBy(OrderId: order.OrderId);
+
+                foreach (var detail in orderDetails)
+                {
+                    var product = db.Products.FindAllBy(ProductId: detail.ProductId).First();
+                    treeViewOrders.Nodes[treeViewOrders.Nodes.Count - 1].Nodes.Add(product.ProductName);
+                }
             }
 
         }
