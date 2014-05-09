@@ -22,7 +22,12 @@ namespace GerdasSyhorna
 
             foreach (var order in orders)
             {
-                
+                treeViewOrders.Nodes.Add(order.FirstName + " " + order.LastName);
+                if (order.Status != null)
+                treeViewOrders.Nodes[treeViewOrders.Nodes.Count - 1].Nodes.Add(order.Status.ToString());
+
+                else
+                    treeViewOrders.Nodes[treeViewOrders.Nodes.Count - 1].Nodes.Add("Ohanterad order");
             }
 
         }

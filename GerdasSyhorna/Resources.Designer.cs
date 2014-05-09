@@ -61,7 +61,7 @@ namespace GerdasSyhorna {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data Source=&quot;78.70.198.172\SQLEXPRESS, 1433&quot;;Initial Catalog=GerdasSyhorna;Persist Security Info=True;User ID=administrator;Password=123456.
+        ///   Looks up a localized string similar to Data Source=&quot;78.70.198.172\SQLEXPRESS, 1433&quot;;Initial Catalog=GerdasSyhorna;Persist Security Info=True;User ID=administrator;Password=P@ssw0rd.
         /// </summary>
         internal static string connectionString {
             get {
