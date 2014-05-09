@@ -20,9 +20,12 @@ namespace GerdasSyhorna
 
         public Form1()
         {
-            
-            FormEmployee formEmployee = new FormEmployee();
-            formEmployee.Show();
+
+            //FormEmployee formEmployee = new FormEmployee();
+            //formEmployee.Show();
+
+            FormCustomer formCustomer = new FormCustomer();
+            formCustomer.Show();
 
             //Order order = new Order();
             //Dictionary<int, Tuple<short, byte>> orderData = new Dictionary<int, Tuple<short, byte>>();
@@ -79,12 +82,12 @@ namespace GerdasSyhorna
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
         }
 
         private void Form1_Leave(object sender, EventArgs e)
         {
-            this.Hide();
+           // this.Hide();
         }
     }
 }
