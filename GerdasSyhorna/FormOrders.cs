@@ -29,14 +29,31 @@ namespace GerdasSyhorna
                     treeViewOrders.Nodes.Add(order.FirstName + " " + order.LastName + ":   Ohanterad Order");
 
                 var orderDetails = db.Orderdetails.FindAllBy(OrderId: order.OrderId);
+                treeViewOrders.Nodes[treeViewOrders.Nodes.Count - 1].Tag = order.OrderId;
 
                 foreach (var detail in orderDetails)
                 {
                     var product = db.Products.FindAllBy(ProductId: detail.ProductId).First();
-                    treeViewOrders.Nodes[treeViewOrders.Nodes.Count - 1].Nodes.Add(product.ProductName);
+                    treeViewOrders.Nodes[treeViewOrders.Nodes.Count - 1].Nodes.Add( detail.Quantity + " st " + product.ProductName);
                 }
             }
 
+        }
+
+        private void FormOrders_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void buttonRemoveOrder_Click(object sender, EventArgs e)
+        {
+            Order.RemoveOrder((int)treeViewOrders.SelectedNode.Tag);
+            treeViewOrders.SelectedNode.Remove();
         }
     }
 }

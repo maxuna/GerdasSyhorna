@@ -33,7 +33,7 @@ namespace GerdasSyhorna
             {
                 comboBoxSearch.Items.Add((item as ColumnHeader).Text);
             }
-            
+            comboBoxSearch.SelectedIndex = 0;
 
           
             foreach (var item in productCounts)

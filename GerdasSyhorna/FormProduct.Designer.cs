@@ -41,6 +41,8 @@
             this.numericUpDownUnitsInStock = new System.Windows.Forms.NumericUpDown();
             this.comboBoxSupplier = new System.Windows.Forms.ComboBox();
             this.labelSupplier = new System.Windows.Forms.Label();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUnitsInStock)).BeginInit();
@@ -111,7 +113,7 @@
             // 
             // buttonAddProduct
             // 
-            this.buttonAddProduct.Location = new System.Drawing.Point(158, 315);
+            this.buttonAddProduct.Location = new System.Drawing.Point(161, 379);
             this.buttonAddProduct.Name = "buttonAddProduct";
             this.buttonAddProduct.Size = new System.Drawing.Size(111, 39);
             this.buttonAddProduct.TabIndex = 9;
@@ -157,7 +159,7 @@
             "Ingen"});
             this.comboBoxSupplier.Location = new System.Drawing.Point(21, 267);
             this.comboBoxSupplier.Name = "comboBoxSupplier";
-            this.comboBoxSupplier.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSupplier.Size = new System.Drawing.Size(169, 21);
             this.comboBoxSupplier.TabIndex = 13;
             this.comboBoxSupplier.Text = "Ingen";
             // 
@@ -170,11 +172,29 @@
             this.labelSupplier.TabIndex = 14;
             this.labelSupplier.Text = "Leverantör:";
             // 
+            // textBoxDescription
+            // 
+            this.textBoxDescription.Location = new System.Drawing.Point(21, 323);
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(169, 20);
+            this.textBoxDescription.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 307);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Beskrivning:";
+            // 
             // FormProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 366);
+            this.ClientSize = new System.Drawing.Size(433, 430);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.labelSupplier);
             this.Controls.Add(this.comboBoxSupplier);
             this.Controls.Add(this.numericUpDownUnitsInStock);
@@ -188,8 +208,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxCategory);
             this.Controls.Add(this.textBoxName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormProduct";
             this.Text = "FormAddProduct";
+            this.Load += new System.EventHandler(this.FormProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUnitsInStock)).EndInit();
@@ -213,5 +235,7 @@
         internal System.Windows.Forms.PictureBox pictureBox1;
         internal System.Windows.Forms.NumericUpDown numericUpDownUnitsInStock;
         internal System.Windows.Forms.ComboBox comboBoxSupplier;
+        private System.Windows.Forms.Label label5;
+        internal System.Windows.Forms.TextBox textBoxDescription;
     }
 }

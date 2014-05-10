@@ -54,7 +54,7 @@ namespace GerdasSyhorna
 
             //sätter in den nya produkten i databasen
             database.Products.Insert(ProductName: textBoxName.Text, Category: textBoxCategory.Text, Price: (float)numericUpDownPrice.Value,
-                UnitsInStock: (short)numericUpDownUnitsInStock.Value, ImageFile: binaryImage, SupplierId: selectedSupplier.SupplierId);
+                UnitsInStock: (short)numericUpDownUnitsInStock.Value, ImageFile: binaryImage, SupplierId: selectedSupplier.SupplierId, Description: textBoxDescription.Text);
 
             this.Dispose();
         }
@@ -73,6 +73,11 @@ namespace GerdasSyhorna
             {
                
             }
+        }
+
+        private void FormProduct_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
@@ -142,7 +147,7 @@ namespace GerdasSyhorna
             //ersätter produkten i databasen
                 database.Products.UpdateByProductId(ProductId: id, ProductName: textBoxName.Text,
                 Category: textBoxCategory.Text, Price: (float)numericUpDownPrice.Value, UnitsInStock: (short)numericUpDownUnitsInStock.Value,
-                ImageFile: binaryImage, SupplierId: selectedSupplier.SupplierId);
+                ImageFile: binaryImage, SupplierId: selectedSupplier.SupplierId, Description: textBoxDescription.Text);
 
                 this.Dispose();
         }

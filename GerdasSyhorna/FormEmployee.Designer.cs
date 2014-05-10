@@ -298,6 +298,7 @@
             this.Controls.Add(this.labelSupplier);
             this.Controls.Add(this.labelProducts);
             this.Controls.Add(this.listViewProducts);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormEmployee";
             this.Text = "FormEmployee";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();

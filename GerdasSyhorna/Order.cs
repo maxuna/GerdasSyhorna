@@ -7,7 +7,7 @@ using Simple.Data;
 
 namespace GerdasSyhorna
 {
-    class Order
+    static class Order
     {
         //public int OrderId { get; private set; }
 
@@ -22,7 +22,7 @@ namespace GerdasSyhorna
         }
 
         
-        public void CreateOrder(int customerId, DateTime orderDate, Dictionary<int, Tuple<short, byte>> productQuantityDiscount)
+        public static void CreateOrder(int customerId, DateTime orderDate, Dictionary<int, Tuple<short, byte>> productQuantityDiscount)
         {
             var database = Database.OpenConnection(Resources.connectionString);
 
@@ -31,6 +31,14 @@ namespace GerdasSyhorna
             
 
             OrderDetails orderDetails = new OrderDetails(productQuantityDiscount, database.SP_LastOrder().First().OrderId);
+        }
+
+        public static void RemoveOrder(int id)
+        {
+            var db = Database.OpenConnection(Resources.connectionString);
+
+            db.Orders.Delete(OrderId: id);
+            db.OrderDetails.Delete(OrderId: id);
         }
     }
 
