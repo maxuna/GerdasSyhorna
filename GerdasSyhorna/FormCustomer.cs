@@ -69,7 +69,7 @@ namespace GerdasSyhorna
                 ((Products)Products[i]).Controls.Add(((PictureBox)pictureBoxes[i]));
                 ((PictureBox)pictureBoxes[i]).Location = new Point(5, 5);
                 ((PictureBox)pictureBoxes[i]).Size = new Size(200, 200);
-                ((PictureBox)pictureBoxes[i]).Image = Image.FromFile("../../Images/bildsaknas.png");
+                ((PictureBox)pictureBoxes[i]).Image = ImageConverter.ImageFromByteArray(item.imageFile);
                 ((PictureBox)pictureBoxes[i]).BorderStyle = BorderStyle.FixedSingle;
 
                 ((Products)Products[i]).Controls.Add(((Label)descriptionLabel[i]));
