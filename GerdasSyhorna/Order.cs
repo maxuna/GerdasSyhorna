@@ -20,7 +20,7 @@ namespace GerdasSyhorna
         {
 
         }
-
+        
         
         public static void CreateOrder(int customerId, DateTime orderDate, Dictionary<int, Tuple<short, byte>> productQuantityDiscount)
         {
