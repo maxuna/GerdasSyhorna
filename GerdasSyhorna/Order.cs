@@ -16,10 +16,7 @@ namespace GerdasSyhorna
         //public string Status { get; set; }
 
 
-        public Order()
-        {
-
-        }
+        
 
         
         public static void CreateOrder(int customerId, DateTime orderDate, Dictionary<int, Tuple<short, byte>> productQuantityDiscount)
@@ -36,14 +33,21 @@ namespace GerdasSyhorna
         public static void RemoveOrder(int id)
         {
             var db = Database.OpenConnection(Resources.connectionString);
-
-            db.Orders.Delete(OrderId: id);
             db.OrderDetails.Delete(OrderId: id);
+            db.Orders.Delete(OrderId: id);
+            
+        }
+
+        public static void ChangeStatus(int id, string status)
+        {
+            var db = Database.OpenConnection(Resources.connectionString);
+            db.Orders.UpdateByOrderId(OrderId: id, Status: status);
         }
     }
 
-    class OrderDetails : Order
+    class OrderDetails
     {
+        //lägger in detaljer kring specifik order
         public OrderDetails(Dictionary<int, Tuple<short, byte>> pqd, int orderId)
         {
             var db = Database.OpenConnection(Resources.connectionString);

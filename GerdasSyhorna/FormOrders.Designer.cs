@@ -29,30 +29,32 @@
         private void InitializeComponent()
         {
             this.treeViewOrders = new System.Windows.Forms.TreeView();
-            this.buttonMarkOrder = new System.Windows.Forms.Button();
+            this.buttonUnTreated = new System.Windows.Forms.Button();
             this.buttonRemoveOrder = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonTreated = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // treeViewOrders
             // 
-            this.treeViewOrders.Location = new System.Drawing.Point(83, 42);
+            this.treeViewOrders.Location = new System.Drawing.Point(83, 71);
             this.treeViewOrders.Name = "treeViewOrders";
             this.treeViewOrders.Size = new System.Drawing.Size(305, 260);
             this.treeViewOrders.TabIndex = 0;
             // 
-            // buttonMarkOrder
+            // buttonUnTreated
             // 
-            this.buttonMarkOrder.Location = new System.Drawing.Point(60, 321);
-            this.buttonMarkOrder.Name = "buttonMarkOrder";
-            this.buttonMarkOrder.Size = new System.Drawing.Size(166, 23);
-            this.buttonMarkOrder.TabIndex = 1;
-            this.buttonMarkOrder.Text = "Markera order som hanterad";
-            this.buttonMarkOrder.UseVisualStyleBackColor = true;
-            this.buttonMarkOrder.Click += new System.EventHandler(this.button1_Click);
+            this.buttonUnTreated.Location = new System.Drawing.Point(66, 350);
+            this.buttonUnTreated.Name = "buttonUnTreated";
+            this.buttonUnTreated.Size = new System.Drawing.Size(166, 23);
+            this.buttonUnTreated.TabIndex = 1;
+            this.buttonUnTreated.Text = "Markera som Obehandlad";
+            this.buttonUnTreated.UseVisualStyleBackColor = true;
+            this.buttonUnTreated.Click += new System.EventHandler(this.buttonUntreated_Click);
             // 
             // buttonRemoveOrder
             // 
-            this.buttonRemoveOrder.Location = new System.Drawing.Point(244, 321);
+            this.buttonRemoveOrder.Location = new System.Drawing.Point(152, 379);
             this.buttonRemoveOrder.Name = "buttonRemoveOrder";
             this.buttonRemoveOrder.Size = new System.Drawing.Size(166, 23);
             this.buttonRemoveOrder.TabIndex = 2;
@@ -60,26 +62,52 @@
             this.buttonRemoveOrder.UseVisualStyleBackColor = true;
             this.buttonRemoveOrder.Click += new System.EventHandler(this.buttonRemoveOrder_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(170, 48);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Markera en order för att\r\nta bort den eller ändra\r\ndess status";
+            // 
+            // buttonTreated
+            // 
+            this.buttonTreated.Location = new System.Drawing.Point(238, 350);
+            this.buttonTreated.Name = "buttonTreated";
+            this.buttonTreated.Size = new System.Drawing.Size(166, 23);
+            this.buttonTreated.TabIndex = 4;
+            this.buttonTreated.Text = "Markera som behandlad";
+            this.buttonTreated.UseVisualStyleBackColor = true;
+            this.buttonTreated.Click += new System.EventHandler(this.buttonTreated_Click_1);
+            // 
             // FormOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 356);
+            this.ClientSize = new System.Drawing.Size(470, 407);
+            this.Controls.Add(this.buttonTreated);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonRemoveOrder);
-            this.Controls.Add(this.buttonMarkOrder);
+            this.Controls.Add(this.buttonUnTreated);
             this.Controls.Add(this.treeViewOrders);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormOrders";
             this.Text = "FormOrders";
+            this.Activated += new System.EventHandler(this.FormOrders_Activated);
             this.Load += new System.EventHandler(this.FormOrders_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.TreeView treeViewOrders;
-        private System.Windows.Forms.Button buttonMarkOrder;
+        private System.Windows.Forms.Button buttonUnTreated;
         private System.Windows.Forms.Button buttonRemoveOrder;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonTreated;
     }
 }
