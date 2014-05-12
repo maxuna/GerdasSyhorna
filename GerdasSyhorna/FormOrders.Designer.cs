@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.treeViewOrders = new System.Windows.Forms.TreeView();
-            this.buttonUnTreated = new System.Windows.Forms.Button();
+            this.buttonUntreated = new System.Windows.Forms.Button();
             this.buttonRemoveOrder = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonTreated = new System.Windows.Forms.Button();
@@ -42,15 +42,15 @@
             this.treeViewOrders.Size = new System.Drawing.Size(305, 260);
             this.treeViewOrders.TabIndex = 0;
             // 
-            // buttonUnTreated
+            // buttonUntreated
             // 
-            this.buttonUnTreated.Location = new System.Drawing.Point(66, 350);
-            this.buttonUnTreated.Name = "buttonUnTreated";
-            this.buttonUnTreated.Size = new System.Drawing.Size(166, 23);
-            this.buttonUnTreated.TabIndex = 1;
-            this.buttonUnTreated.Text = "Markera som Obehandlad";
-            this.buttonUnTreated.UseVisualStyleBackColor = true;
-            this.buttonUnTreated.Click += new System.EventHandler(this.buttonUntreated_Click);
+            this.buttonUntreated.Location = new System.Drawing.Point(66, 350);
+            this.buttonUntreated.Name = "buttonUntreated";
+            this.buttonUntreated.Size = new System.Drawing.Size(166, 23);
+            this.buttonUntreated.TabIndex = 1;
+            this.buttonUntreated.Text = "Markera som Obehandlad";
+            this.buttonUntreated.UseVisualStyleBackColor = true;
+            this.buttonUntreated.Click += new System.EventHandler(this.buttonUntreated_Click);
             // 
             // buttonRemoveOrder
             // 
@@ -90,7 +90,7 @@
             this.Controls.Add(this.buttonTreated);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonRemoveOrder);
-            this.Controls.Add(this.buttonUnTreated);
+            this.Controls.Add(this.buttonUntreated);
             this.Controls.Add(this.treeViewOrders);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormOrders";
@@ -105,7 +105,7 @@
         #endregion
 
         private System.Windows.Forms.TreeView treeViewOrders;
-        private System.Windows.Forms.Button buttonUnTreated;
+        private System.Windows.Forms.Button buttonUntreated;
         private System.Windows.Forms.Button buttonRemoveOrder;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonTreated;

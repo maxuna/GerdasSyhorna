@@ -55,20 +55,7 @@ namespace GerdasSyhorna
 
         private void FormOrders_Activated(object sender, EventArgs e)
         {
-            if (treeViewOrders.SelectedNode.Text.Contains("Behandlad"))
-            {
-                buttonUnTreated.Text = "Markera som obehandlad";
-            }
-
-            else if (treeViewOrders.SelectedNode.Text.Contains("Obehandlad"))
-            {
-                buttonUnTreated.Text = "Markera som behandlad";
-            }
-
-            else
-            {
-                buttonUnTreated.Text = "-";
-            }
+            
         }
 
         private void treeViewOrders_AfterSelect(object sender, TreeViewEventArgs e)
