@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -41,11 +42,19 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(901, 374);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(451, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(462, 115);
+            this.panel1.TabIndex = 4;
+            // 
             // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(925, 519);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormCustomer";
@@ -57,6 +66,7 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
 
 
     }

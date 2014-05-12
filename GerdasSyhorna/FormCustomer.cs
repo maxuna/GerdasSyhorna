@@ -27,9 +27,12 @@ namespace GerdasSyhorna
             List<Label> descriptionLabel = new List<Label>();
             List<Label> priceLabel = new List<Label>();
             List<NumericUpDown> antalNumeric = new List<NumericUpDown>();
-
+            Label antal = new Label();
+            
             var database = Database.OpenConnection(Resources.connectionString);
             var asas = database.Products;
+
+            
 
             foreach (var item in database.Products.All())
             {
@@ -58,7 +61,7 @@ namespace GerdasSyhorna
                 (((Button)buyButtons[i]).Width) = 140;
                 (((Button)buyButtons[i]).Location) = new Point(750, 115);
                 (((Button)buyButtons[i]).Image) = Image.FromFile("../../Images/Buy_Button.png");
-                //((Button)buyButtons[i]).Click += new EventHandler(buyButton_Click);
+                ((Button)buyButtons[i]).Click += new EventHandler(buyButton_Click);
 
                 ((Products)Products[i]).Controls.Add(((Label)nameLabel[i]));
                 ((Label)nameLabel[i]).Text = item.ProductName;
@@ -69,14 +72,15 @@ namespace GerdasSyhorna
                 ((Products)Products[i]).Controls.Add(((PictureBox)pictureBoxes[i]));
                 ((PictureBox)pictureBoxes[i]).Location = new Point(5, 5);
                 ((PictureBox)pictureBoxes[i]).Size = new Size(200, 200);
-               // ((PictureBox)pictureBoxes[i]).Image = ImageConverter.ImageFromByteArray(item.imageFile);
+                //((PictureBox)pictureBoxes[i]).Image = ImageConverter.ImageFromByteArray(item.imageFile);
                 ((PictureBox)pictureBoxes[i]).BorderStyle = BorderStyle.FixedSingle;
 
                 ((Products)Products[i]).Controls.Add(((Label)descriptionLabel[i]));
                 ((Label)descriptionLabel[i]).Width = 340;
                 ((Label)descriptionLabel[i]).Location = new Point(205, 40);
-                ((Label)descriptionLabel[i]).Text = item.Description;
+                ((Label)descriptionLabel[i]).Text = item.Description + Environment.NewLine + Environment.NewLine + "Antal kvar i lager: " + item.UnitsInStock;
                 ((Label)descriptionLabel[i]).BorderStyle = BorderStyle.FixedSingle;
+                ((Label)descriptionLabel[i]).AutoSize = true;
 
                 ((Products)Products[i]).Controls.Add(((Label)priceLabel[i]));
                 ((Label)priceLabel[i]).Location = new Point(650, 5);
@@ -84,21 +88,26 @@ namespace GerdasSyhorna
                 ((Label)priceLabel[i]).Text = "Pris: " + item.price.ToString() + "kr";
                 ((Label)priceLabel[i]).AutoSize = true;
 
+                ((Products)Products[i]).Controls.Add(antal);
+                antal.Location = new Point(650, 40);
+                antal.AutoSize = true;
+                antal.Text = "Antal: ";
+                
                 ((Products)Products[i]).Controls.Add((NumericUpDown)antalNumeric[i]);
-                ((NumericUpDown)antalNumeric[i]).Location = new Point(650, 40);
+                ((NumericUpDown)antalNumeric[i]).Location = new Point(750, 40);
+                ((NumericUpDown)antalNumeric[i]).Value = 1;
+                ((NumericUpDown)antalNumeric[i]).Minimum = 1;
+                ((NumericUpDown)antalNumeric[i]).Maximum = item.UnitsInStock;
 
+                
 
 
                 i++;
             }
 
+
         }
-        public Image byteArrayToImage(byte[] byteArrayIn)
-        {
-            MemoryStream ms = new MemoryStream(byteArrayIn);
-            Image returnImage = Image.FromStream(ms);
-            return returnImage;
-        }
+        
 
     }
 }
