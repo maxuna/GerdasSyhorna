@@ -16,16 +16,13 @@ namespace GerdasSyhorna
         //public string Status { get; set; }
 
 
-<<<<<<< HEAD
-        
 
-=======
         public Order()
         {
 
         }
         
->>>>>>> c89d5ea1a5832a5011d540096e9176dd5accc11b
+
         
         public static void CreateOrder(int customerId, DateTime orderDate, Dictionary<int, Tuple<short, byte>> productQuantityDiscount)
         {
