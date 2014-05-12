@@ -7,7 +7,7 @@ using Simple.Data;
 
 namespace GerdasSyhorna
 {
-    static class Order
+    class Order
     {
         //public int OrderId { get; private set; }
 
