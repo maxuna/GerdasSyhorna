@@ -15,24 +15,26 @@ namespace GerdasSyhorna
     public partial class FormCustomer : Form
     {
         int i = 0;
-
+        List<Products> Products = new List<GerdasSyhorna.Products>();
+        List<Button> buyButtons = new List<Button>();
+        List<Label> nameLabel = new List<Label>();
+        List<PictureBox> pictureBoxes = new List<PictureBox>();
+        List<Label> descriptionLabel = new List<Label>();
+        List<Label> priceLabel = new List<Label>();
+        List<NumericUpDown> antalNumeric = new List<NumericUpDown>();
+        Label antal = new Label();
+        List<TextBox> varukorg = new List<TextBox>();
+        int yled = 0;
+       
         public FormCustomer()
         {
             InitializeComponent();
 
-            List<Products> Products = new List<GerdasSyhorna.Products>();
-            List<Button> buyButtons = new List<Button>();
-            List<Label> nameLabel = new List<Label>();
-            List<PictureBox> pictureBoxes = new List<PictureBox>();
-            List<Label> descriptionLabel = new List<Label>();
-            List<Label> priceLabel = new List<Label>();
-            List<NumericUpDown> antalNumeric = new List<NumericUpDown>();
-            Label antal = new Label();
-            
             var database = Database.OpenConnection(Resources.connectionString);
             var asas = database.Products;
 
-            
+
+
 
             foreach (var item in database.Products.All())
             {
@@ -50,6 +52,7 @@ namespace GerdasSyhorna
                 priceLabel.Add(pl);
                 NumericUpDown an = new NumericUpDown();
                 antalNumeric.Add(an);
+                
 
                 flowLayoutPanel1.Controls.Add(((Products)Products[i]));
                 (((Products)Products[i]).Height) = 200;
@@ -68,6 +71,7 @@ namespace GerdasSyhorna
                 ((Label)nameLabel[i]).Location = new Point(205, 5);
                 ((Label)nameLabel[i]).Font = new Font("Times New Roman", 20.0F);
                 ((Label)nameLabel[i]).AutoSize = true;
+                
 
                 ((Products)Products[i]).Controls.Add(((PictureBox)pictureBoxes[i]));
                 ((PictureBox)pictureBoxes[i]).Location = new Point(5, 5);
@@ -88,7 +92,7 @@ namespace GerdasSyhorna
                 ((Label)priceLabel[i]).Text = "Pris: " + item.price.ToString() + "kr";
                 ((Label)priceLabel[i]).AutoSize = true;
 
-                ((Products)Products[i]).Controls.Add(antal);
+                ((Products)Products[i]).Controls.Add((Label)antal);
                 antal.Location = new Point(650, 40);
                 antal.AutoSize = true;
                 antal.Text = "Antal: ";
@@ -104,10 +108,40 @@ namespace GerdasSyhorna
 
                 i++;
             }
+            
+            TextBox vl = new TextBox();
+            varukorg.Add(vl);
+            panel1.Controls.Add((TextBox)varukorg[0]);
+            varukorg[0].Text = "Inga varor i kundvagnen.";
+            varukorg[0].Size = new Size(462, 15);
+            varukorg[0].ReadOnly = true;
+            yled += 25;
 
 
         }
-        
+        public void buyButton_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int index = buyButtons.IndexOf(btn);
+           
+
+                if (varukorg[0].Text == "Inga varor i kundvagnen.")
+                {
+                    varukorg[0].Text = "x" + antalNumeric[index].Value.ToString() + "  " + nameLabel[index].Text + " á" + "\t" + "\t" + priceLabel[index].Text;
+                }
+                else
+                {
+                    TextBox vl = new TextBox();
+                    varukorg.Add(vl);
+                    panel1.Controls.Add((TextBox)varukorg[varukorg.Count - 1]);
+                    varukorg[varukorg.Count - 1].Text = "x" + antalNumeric[index].Value.ToString() + "  " + nameLabel[index].Text + " á" + "\t" + "\t" + priceLabel[index].Text;
+                    varukorg[varukorg.Count - 1].Size = new Size(462, 15);
+                    varukorg[varukorg.Count - 1].ReadOnly = true;
+                    varukorg[varukorg.Count - 1].Location = new Point(0, yled);
+                    yled += 25;
+                }
+            
+        }
 
     }
 }
