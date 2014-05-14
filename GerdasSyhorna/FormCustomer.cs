@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Simple.Data;
@@ -25,6 +26,9 @@ namespace GerdasSyhorna
         Label antal = new Label();
         List<TextBox> varukorg = new List<TextBox>();
         int yled = 0;
+        List<int> amountItems = new List<int>();
+        int totalPrice = 0;
+        string namnVarukorg = "";
        
         public FormCustomer()
         {
@@ -123,23 +127,40 @@ namespace GerdasSyhorna
         {
             Button btn = (Button)sender;
             int index = buyButtons.IndexOf(btn);
-           
+            
 
+            if (amountItems.Contains(index))
+            {
+                int i = amountItems.IndexOf(index);
+                antalNumeric[index].Value++;
+                namnVarukorg = Regex.Match(priceLabel[index].Text, @"\d+").Value;
+                varukorg[i].Text = "x" + (antalNumeric[index].Value).ToString() + "  " + nameLabel[index].Text + " á" + "\t" + "\t" + (Int32.Parse(namnVarukorg)).ToString() + " Kr";
+                amountItems.Remove(index);
+                totalPrice += i * Int32.Parse(namnVarukorg);  
+            }
+            else
+            {
                 if (varukorg[0].Text == "Inga varor i kundvagnen.")
                 {
-                    varukorg[0].Text = "x" + antalNumeric[index].Value.ToString() + "  " + nameLabel[index].Text + " á" + "\t" + "\t" + priceLabel[index].Text;
+                    namnVarukorg = Regex.Match(priceLabel[index].Text, @"\d+").Value;
+                    varukorg[0].Text = "x" + antalNumeric[index].Value.ToString() + "  " + nameLabel[index].Text + " á" + "\t" + "\t" + (Int32.Parse(namnVarukorg)).ToString() + " Kr";
                 }
                 else
                 {
                     TextBox vl = new TextBox();
                     varukorg.Add(vl);
                     panel1.Controls.Add((TextBox)varukorg[varukorg.Count - 1]);
-                    varukorg[varukorg.Count - 1].Text = "x" + antalNumeric[index].Value.ToString() + "  " + nameLabel[index].Text + " á" + "\t" + "\t" + priceLabel[index].Text;
+                    namnVarukorg = Regex.Match(priceLabel[index].Text, @"\d+").Value;
+                    varukorg[varukorg.Count - 1].Text = "x" + antalNumeric[index].Value.ToString() + "  " + nameLabel[index].Text + " á" + "\t" + "\t" + (Int32.Parse(namnVarukorg)).ToString() + " Kr";
                     varukorg[varukorg.Count - 1].Size = new Size(462, 15);
                     varukorg[varukorg.Count - 1].ReadOnly = true;
                     varukorg[varukorg.Count - 1].Location = new Point(0, yled);
                     yled += 25;
+                    totalPrice += (int)(antalNumeric[index].Value) * Int32.Parse(namnVarukorg);
                 }
+            }
+            amountItems.Add(index);
+            totalPriceLabel.Text = totalPrice.ToString();
             
         }
 
