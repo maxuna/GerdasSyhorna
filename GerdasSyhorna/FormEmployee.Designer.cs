@@ -134,7 +134,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(399, 324);
+            this.label1.Location = new System.Drawing.Point(399, 304);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 64);
             this.label1.TabIndex = 4;
@@ -281,7 +281,7 @@
             // buttonRemoveProduct
             // 
             this.buttonRemoveProduct.Enabled = false;
-            this.buttonRemoveProduct.Location = new System.Drawing.Point(35, 381);
+            this.buttonRemoveProduct.Location = new System.Drawing.Point(35, 377);
             this.buttonRemoveProduct.Name = "buttonRemoveProduct";
             this.buttonRemoveProduct.Size = new System.Drawing.Size(122, 23);
             this.buttonRemoveProduct.TabIndex = 20;
@@ -294,7 +294,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1045, 424);
+            this.ClientSize = new System.Drawing.Size(1045, 402);
             this.Controls.Add(this.buttonRemoveProduct);
             this.Controls.Add(this.buttonOrders);
             this.Controls.Add(this.comboBoxSearch);
