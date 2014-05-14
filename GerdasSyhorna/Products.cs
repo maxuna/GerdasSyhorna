@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GerdasSyhorna
 {
-    class Products : System.Windows.Forms.Label
+    class Products : System.Windows.Forms.Panel
     {
         public int index;
         public string name;
@@ -44,6 +44,13 @@ namespace GerdasSyhorna
             this.description = description;
         }
 
+        public System.Windows.Forms.Button buyButtons = new System.Windows.Forms.Button();
+        public System.Windows.Forms.Label nameLabel = new System.Windows.Forms.Label();
+        public System.Windows.Forms.PictureBox pictureBoxes = new System.Windows.Forms.PictureBox();
+        public System.Windows.Forms.Label descriptionLabel = new System.Windows.Forms.Label();
+        public System.Windows.Forms.Label priceLabel = new System.Windows.Forms.Label();
+        public System.Windows.Forms.NumericUpDown antalNumeric = new System.Windows.Forms.NumericUpDown();
+        
 
 
 

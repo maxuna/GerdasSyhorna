@@ -17,14 +17,8 @@ namespace GerdasSyhorna
     {
         int i = 0;
         List<Products> Products = new List<GerdasSyhorna.Products>();
-        List<Button> buyButtons = new List<Button>();
-        List<Label> nameLabel = new List<Label>();
-        List<PictureBox> pictureBoxes = new List<PictureBox>();
-        List<Label> descriptionLabel = new List<Label>();
-        List<Label> priceLabel = new List<Label>();
-        List<NumericUpDown> antalNumeric = new List<NumericUpDown>();
-        Label antal = new Label();
         List<TextBox> varukorg = new List<TextBox>();
+        Label antal = new Label();
         int yled = 0;
         List<int> amountItems = new List<int>();
         int totalPrice = 0;
@@ -44,18 +38,7 @@ namespace GerdasSyhorna
             {
                 Products p = new Products(item.ProductId, item.ProductName, item.Category, item.Price, item.UnitsInStock, item.UnitsOnOrder, item.SupplierId, item.ImageFile, item.Description);
                 Products.Add(p);
-                Button b = new Button();
-                buyButtons.Add(b);
-                Label nl = new Label();
-                nameLabel.Add(nl);
-                PictureBox pb = new PictureBox();
-                pictureBoxes.Add(pb);
-                Label dl = new Label();
-                descriptionLabel.Add(dl);
-                Label pl = new Label();
-                priceLabel.Add(pl);
-                NumericUpDown an = new NumericUpDown();
-                antalNumeric.Add(an);
+               
                 
 
                 flowLayoutPanel1.Controls.Add(((Products)Products[i]));
@@ -63,49 +46,48 @@ namespace GerdasSyhorna
                 (((Products)Products[i]).Width) = 900;
                 (((Products)Products[i]).BorderStyle) = BorderStyle.Fixed3D;
 
-                ((Products)Products[i]).Controls.Add(((Button)buyButtons[i]));
-                (((Button)buyButtons[i]).Height) = 75;
-                (((Button)buyButtons[i]).Width) = 140;
-                (((Button)buyButtons[i]).Location) = new Point(750, 115);
-                (((Button)buyButtons[i]).Image) = Image.FromFile("../../Images/Buy_Button.png");
-                ((Button)buyButtons[i]).Click += new EventHandler(buyButton_Click);
+                ((Products)Products[i]).Controls.Add(Products[i].buyButtons);
+                (Products[i].buyButtons).Height = 75;
+                (Products[i].buyButtons).Width = 140;
+                (Products[i].buyButtons).Location = new Point(750, 115);
+                (Products[i].buyButtons).Image = Image.FromFile("../../Images/Buy_Button.png");
+                //(Products[i].buyButtons).Click += new EventHandler(buyButton_Click);
 
-                ((Products)Products[i]).Controls.Add(((Label)nameLabel[i]));
-                ((Label)nameLabel[i]).Text = item.ProductName;
-                ((Label)nameLabel[i]).Location = new Point(205, 5);
-                ((Label)nameLabel[i]).Font = new Font("Times New Roman", 20.0F);
-                ((Label)nameLabel[i]).AutoSize = true;
+                ((Products)Products[i]).Controls.Add(Products[i].nameLabel);
+                (Products[i].nameLabel).Text = item.ProductName;
+                (Products[i].nameLabel).Location = new Point(205, 5);
+                (Products[i].nameLabel).Font = new Font("Times New Roman", 20.0F);
+                (Products[i].nameLabel).AutoSize = true;
                 
-
-                ((Products)Products[i]).Controls.Add(((PictureBox)pictureBoxes[i]));
-                ((PictureBox)pictureBoxes[i]).Location = new Point(5, 5);
-                ((PictureBox)pictureBoxes[i]).Size = new Size(200, 200);
+                ((Products)Products[i]).Controls.Add(Products[i].pictureBoxes);
+                (Products[i].pictureBoxes).Location = new Point(5, 5);
+                (Products[i].pictureBoxes).Size = new Size(200, 200);
                 //((PictureBox)pictureBoxes[i]).Image = ImageConverter.ImageFromByteArray(item.imageFile);
-                ((PictureBox)pictureBoxes[i]).BorderStyle = BorderStyle.FixedSingle;
+                (Products[i].pictureBoxes).BorderStyle = BorderStyle.FixedSingle;
 
-                ((Products)Products[i]).Controls.Add(((Label)descriptionLabel[i]));
-                ((Label)descriptionLabel[i]).Width = 340;
-                ((Label)descriptionLabel[i]).Location = new Point(205, 40);
-                ((Label)descriptionLabel[i]).Text = item.Description + Environment.NewLine + Environment.NewLine + "Antal kvar i lager: " + item.UnitsInStock;
-                ((Label)descriptionLabel[i]).BorderStyle = BorderStyle.FixedSingle;
-                ((Label)descriptionLabel[i]).AutoSize = true;
+                ((Products)Products[i]).Controls.Add(Products[i].descriptionLabel);
+                (Products[i].descriptionLabel).Width = 340;
+                (Products[i].descriptionLabel).Location = new Point(205, 40);
+                (Products[i].descriptionLabel).Text = Products[i].description + Environment.NewLine + Environment.NewLine + "Antal kvar i lager: " + Products[i].unitsInStock;
+                (Products[i].descriptionLabel).BorderStyle = BorderStyle.FixedSingle;
+                (Products[i].descriptionLabel).AutoSize = true;
 
-                ((Products)Products[i]).Controls.Add(((Label)priceLabel[i]));
-                ((Label)priceLabel[i]).Location = new Point(650, 5);
-                ((Label)priceLabel[i]).Font = new Font("Times New Roman", 20.0F);
-                ((Label)priceLabel[i]).Text = "Pris: " + item.price.ToString() + "kr";
-                ((Label)priceLabel[i]).AutoSize = true;
+                ((Products)Products[i]).Controls.Add(Products[i].priceLabel);
+                (Products[i].priceLabel).Location = new Point(650, 5);
+                (Products[i].priceLabel).Font = new Font("Times New Roman", 20.0F);
+                (Products[i].priceLabel).Text = "Pris: " + Products[i].price.ToString() + "kr";
+                (Products[i].priceLabel).AutoSize = true;
 
                 ((Products)Products[i]).Controls.Add((Label)antal);
                 antal.Location = new Point(650, 40);
                 antal.AutoSize = true;
                 antal.Text = "Antal: ";
                 
-                ((Products)Products[i]).Controls.Add((NumericUpDown)antalNumeric[i]);
-                ((NumericUpDown)antalNumeric[i]).Location = new Point(750, 40);
-                ((NumericUpDown)antalNumeric[i]).Value = 1;
-                ((NumericUpDown)antalNumeric[i]).Minimum = 1;
-                ((NumericUpDown)antalNumeric[i]).Maximum = item.UnitsInStock;
+                ((Products)Products[i]).Controls.Add(Products[i].antalNumeric);
+                (Products[i].antalNumeric).Location = new Point(750, 40);
+                (Products[i].antalNumeric).Value = 1;
+                (Products[i].antalNumeric).Minimum = 1;
+                (Products[i].antalNumeric).Maximum = item.UnitsInStock;
 
                 
 
@@ -123,10 +105,10 @@ namespace GerdasSyhorna
 
 
         }
-        public void buyButton_Click(object sender, EventArgs e)
+      /*  public void buyButton_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            int index = buyButtons.IndexOf(btn);
+            int index = Products.IndexOf(btn);
             
 
             if (amountItems.Contains(index))
@@ -162,7 +144,7 @@ namespace GerdasSyhorna
             amountItems.Add(index);
             totalPriceLabel.Text = totalPrice.ToString();
             
-        }
+        }*/
 
     }
 }
