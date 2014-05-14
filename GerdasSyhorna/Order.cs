@@ -17,10 +17,7 @@ namespace GerdasSyhorna
 
 
 
-        public Order()
-        {
-
-        }
+        
         
 
         

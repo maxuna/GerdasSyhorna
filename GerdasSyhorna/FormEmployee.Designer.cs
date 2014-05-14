@@ -52,6 +52,7 @@
             this.labelSearch = new System.Windows.Forms.Label();
             this.comboBoxSearch = new System.Windows.Forms.ComboBox();
             this.buttonOrders = new System.Windows.Forms.Button();
+            this.buttonRemoveProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -161,7 +162,7 @@
             // 
             // buttonAddProduct
             // 
-            this.buttonAddProduct.Location = new System.Drawing.Point(12, 315);
+            this.buttonAddProduct.Location = new System.Drawing.Point(12, 295);
             this.buttonAddProduct.Name = "buttonAddProduct";
             this.buttonAddProduct.Size = new System.Drawing.Size(169, 35);
             this.buttonAddProduct.TabIndex = 8;
@@ -171,7 +172,8 @@
             // 
             // buttonChangeProduct
             // 
-            this.buttonChangeProduct.Location = new System.Drawing.Point(12, 356);
+            this.buttonChangeProduct.Enabled = false;
+            this.buttonChangeProduct.Location = new System.Drawing.Point(12, 336);
             this.buttonChangeProduct.Name = "buttonChangeProduct";
             this.buttonChangeProduct.Size = new System.Drawing.Size(169, 35);
             this.buttonChangeProduct.TabIndex = 9;
@@ -223,7 +225,7 @@
             // 
             // buttonSuppliers
             // 
-            this.buttonSuppliers.Location = new System.Drawing.Point(206, 315);
+            this.buttonSuppliers.Location = new System.Drawing.Point(205, 295);
             this.buttonSuppliers.Name = "buttonSuppliers";
             this.buttonSuppliers.Size = new System.Drawing.Size(169, 35);
             this.buttonSuppliers.TabIndex = 14;
@@ -268,7 +270,7 @@
             // 
             // buttonOrders
             // 
-            this.buttonOrders.Location = new System.Drawing.Point(206, 356);
+            this.buttonOrders.Location = new System.Drawing.Point(205, 336);
             this.buttonOrders.Name = "buttonOrders";
             this.buttonOrders.Size = new System.Drawing.Size(169, 35);
             this.buttonOrders.TabIndex = 19;
@@ -276,12 +278,24 @@
             this.buttonOrders.UseVisualStyleBackColor = true;
             this.buttonOrders.Click += new System.EventHandler(this.buttonOrders_Click);
             // 
+            // buttonRemoveProduct
+            // 
+            this.buttonRemoveProduct.Enabled = false;
+            this.buttonRemoveProduct.Location = new System.Drawing.Point(35, 381);
+            this.buttonRemoveProduct.Name = "buttonRemoveProduct";
+            this.buttonRemoveProduct.Size = new System.Drawing.Size(122, 23);
+            this.buttonRemoveProduct.TabIndex = 20;
+            this.buttonRemoveProduct.Text = "Ta bort vald produkt";
+            this.buttonRemoveProduct.UseVisualStyleBackColor = true;
+            this.buttonRemoveProduct.Click += new System.EventHandler(this.buttonRemoveProduct_Click);
+            // 
             // FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1045, 424);
+            this.Controls.Add(this.buttonRemoveProduct);
             this.Controls.Add(this.buttonOrders);
             this.Controls.Add(this.comboBoxSearch);
             this.Controls.Add(this.labelSearch);
@@ -301,6 +315,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormEmployee";
             this.Text = "FormEmployee";
+            this.Load += new System.EventHandler(this.FormEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -335,5 +350,6 @@
         private System.Windows.Forms.Label labelSearch;
         private System.Windows.Forms.ComboBox comboBoxSearch;
         private System.Windows.Forms.Button buttonOrders;
+        private System.Windows.Forms.Button buttonRemoveProduct;
     }
 }

@@ -18,6 +18,7 @@ namespace GerdasSyhorna
             InitializeComponent();
             var database = Database.OpenConnection(Resources.connectionString);
 
+            
 
             //sätter in rätt lager värde utifrån orderdetaljer
             database.SP_UpdUnitsOnOrder();
@@ -80,7 +81,7 @@ namespace GerdasSyhorna
             ColumnHeader ch = listViewProducts.Columns[e.Column];
             var database = Database.OpenConnection(Resources.connectionString);
             
-            //listan ordnar sig beroende på vilken kolumn man klickade på
+            //listan ordnar sig beroende på vilken kolumn man klickat på
             var table = (dynamic)null;
            
             
@@ -142,6 +143,11 @@ namespace GerdasSyhorna
         {
             if (listViewProducts.SelectedItems.Count > 1 || listViewProducts.SelectedItems.Count < 1)
             {
+                buttonChangeProduct.BackColor = SystemColors.Control;
+                buttonChangeProduct.Enabled = false;
+
+                buttonRemoveProduct.BackColor = SystemColors.Control;
+                buttonRemoveProduct.Enabled = false;
                 return;
             }
 
@@ -151,6 +157,13 @@ namespace GerdasSyhorna
             {
                 return;
             }
+
+            buttonChangeProduct.BackColor = Color.LightGreen;     
+            buttonChangeProduct.Enabled = true;
+
+            buttonRemoveProduct.BackColor = Color.LightSalmon;
+            buttonRemoveProduct.Enabled = true;
+          
 
             //Listview raderna innehåller leverantörsId i Tag
             var supplierId = (lvi.Tag as List<object>)[0];
@@ -181,6 +194,7 @@ namespace GerdasSyhorna
             }
 
             pictureBox.BackgroundImage = ImageConverter.ImageFromByteArray(binaryImage);
+            
         }
 
         private void buttonAddProduct_Click(object sender, EventArgs e)
@@ -255,6 +269,22 @@ namespace GerdasSyhorna
         {
             FormOrders formOrders = new FormOrders();
             formOrders.Show();
+        }
+
+        private void FormEmployee_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonRemoveProduct_Click(object sender, EventArgs e)
+        {
+            //hämtar id hos produkraden i listan
+            int productId = (int)(listViewProducts.SelectedItems[0].Tag as List<object>)[2];
+            var db = Database.OpenConnection(Resources.connectionString);
+            //tar bort specifikt id
+            db.Products.Delete(ProductId: productId);
+
+            listViewProducts.SelectedItems[0].Remove();
         }
 
     }
