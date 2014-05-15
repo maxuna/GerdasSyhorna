@@ -47,12 +47,14 @@
             this.labelPWithSupplier = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonSuppliers = new System.Windows.Forms.Button();
-            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.labelSearch = new System.Windows.Forms.Label();
             this.comboBoxSearch = new System.Windows.Forms.ComboBox();
             this.buttonOrders = new System.Windows.Forms.Button();
             this.buttonRemoveProduct = new System.Windows.Forms.Button();
+            this.buttonShowSearch = new System.Windows.Forms.Button();
+            this.labelShowSearch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +107,7 @@
             // 
             this.labelProducts.AutoSize = true;
             this.labelProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProducts.Location = new System.Drawing.Point(7, 25);
+            this.labelProducts.Location = new System.Drawing.Point(7, 11);
             this.labelProducts.Name = "labelProducts";
             this.labelProducts.Size = new System.Drawing.Size(114, 25);
             this.labelProducts.TabIndex = 1;
@@ -115,7 +117,7 @@
             // 
             this.labelSupplier.AutoSize = true;
             this.labelSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSupplier.Location = new System.Drawing.Point(572, 25);
+            this.labelSupplier.Location = new System.Drawing.Point(572, 11);
             this.labelSupplier.Name = "labelSupplier";
             this.labelSupplier.Size = new System.Drawing.Size(125, 25);
             this.labelSupplier.TabIndex = 2;
@@ -154,7 +156,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(572, 229);
+            this.label2.Location = new System.Drawing.Point(572, 216);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 25);
             this.label2.TabIndex = 7;
@@ -233,15 +235,16 @@
             this.buttonSuppliers.UseVisualStyleBackColor = true;
             this.buttonSuppliers.Click += new System.EventHandler(this.buttonSuppliers_Click);
             // 
-            // buttonRefresh
+            // buttonSearch
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(354, 28);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(92, 23);
-            this.buttonRefresh.TabIndex = 15;
-            this.buttonRefresh.Text = "Uppdatera lista";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
-            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            this.buttonSearch.Location = new System.Drawing.Point(354, 28);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(92, 23);
+            this.buttonSearch.TabIndex = 15;
+            this.buttonSearch.Text = "Sök";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Visible = false;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // textBoxSearch
             // 
@@ -249,6 +252,7 @@
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(100, 20);
             this.textBoxSearch.TabIndex = 16;
+            this.textBoxSearch.Visible = false;
             // 
             // labelSearch
             // 
@@ -258,6 +262,7 @@
             this.labelSearch.Size = new System.Drawing.Size(44, 13);
             this.labelSearch.TabIndex = 17;
             this.labelSearch.Text = "Sökord:";
+            this.labelSearch.Visible = false;
             // 
             // comboBoxSearch
             // 
@@ -267,6 +272,7 @@
             this.comboBoxSearch.Name = "comboBoxSearch";
             this.comboBoxSearch.Size = new System.Drawing.Size(102, 21);
             this.comboBoxSearch.TabIndex = 18;
+            this.comboBoxSearch.Visible = false;
             // 
             // buttonOrders
             // 
@@ -289,6 +295,28 @@
             this.buttonRemoveProduct.UseVisualStyleBackColor = true;
             this.buttonRemoveProduct.Click += new System.EventHandler(this.buttonRemoveProduct_Click);
             // 
+            // buttonShowSearch
+            // 
+            this.buttonShowSearch.BackgroundImage = global::GerdasSyhorna.Properties.Resources.images;
+            this.buttonShowSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonShowSearch.Location = new System.Drawing.Point(151, 4);
+            this.buttonShowSearch.Name = "buttonShowSearch";
+            this.buttonShowSearch.Size = new System.Drawing.Size(45, 45);
+            this.buttonShowSearch.TabIndex = 21;
+            this.buttonShowSearch.UseVisualStyleBackColor = true;
+            this.buttonShowSearch.Click += new System.EventHandler(this.buttonShowSearch_Click);
+            // 
+            // labelShowSearch
+            // 
+            this.labelShowSearch.AutoSize = true;
+            this.labelShowSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelShowSearch.Location = new System.Drawing.Point(202, 3);
+            this.labelShowSearch.Name = "labelShowSearch";
+            this.labelShowSearch.Size = new System.Drawing.Size(214, 48);
+            this.labelShowSearch.TabIndex = 22;
+            this.labelShowSearch.Text = "Klicka på förstoringsglaset för\r\natt söka på produkter utifrån\r\nspeciella kriteri" +
+    "er";
+            // 
             // FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,7 +328,7 @@
             this.Controls.Add(this.comboBoxSearch);
             this.Controls.Add(this.labelSearch);
             this.Controls.Add(this.textBoxSearch);
-            this.Controls.Add(this.buttonRefresh);
+            this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.buttonSuppliers);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonChangeProduct);
@@ -312,9 +340,11 @@
             this.Controls.Add(this.labelSupplier);
             this.Controls.Add(this.labelProducts);
             this.Controls.Add(this.listViewProducts);
+            this.Controls.Add(this.labelShowSearch);
+            this.Controls.Add(this.buttonShowSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormEmployee";
-            this.Text = "FormEmployee";
+            this.Text = "Anställdas formulär";
             this.Load += new System.EventHandler(this.FormEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -345,11 +375,13 @@
         private System.Windows.Forms.Label labelPWithSupplier;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonSuppliers;
-        private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Label labelSearch;
         private System.Windows.Forms.ComboBox comboBoxSearch;
         private System.Windows.Forms.Button buttonOrders;
         private System.Windows.Forms.Button buttonRemoveProduct;
+        private System.Windows.Forms.Button buttonShowSearch;
+        private System.Windows.Forms.Label labelShowSearch;
     }
 }

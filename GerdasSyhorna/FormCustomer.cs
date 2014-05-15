@@ -110,7 +110,7 @@ namespace GerdasSyhorna
             {
                 varukorg[0].Text = (Products[(int)index]).antalNumeric.Value.ToString() + "x " +  (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
                 amountItems.Add((int)index);
-                totalPrice = ((Products[(int)index]).antalNumeric.Value) * ((Products[(int)index]).price);
+                //totalPrice = ((Products[(int)index]).antalNumeric.Value) * ((Products[(int)index]).price);
             }
             else
             {

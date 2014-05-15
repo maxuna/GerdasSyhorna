@@ -93,6 +93,13 @@ namespace GerdasSyhorna
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+
+          //  DialogResult result = MessageBox.Show("Jag är:", "", MessageBoxButtons.YesNo);
+            
+
+
+            FormCreateUser form = new FormCreateUser();
+            form.Show();
         }
     }
 }

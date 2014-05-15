@@ -241,27 +241,6 @@ namespace GerdasSyhorna
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            var database = Database.OpenConnection(Resources.connectionString);
-
-            dynamic specifiedproducts;
-
-            if (textBoxSearch.Text != "")
-                specifiedproducts = database.SP_ProductSearch(textBoxSearch.Text, comboBoxSearch.Text);
-
-            else
-                specifiedproducts = database.Products.All();
-
-            listViewProducts.Items.Clear();
-
-            foreach (var product in specifiedproducts)
-            {
-                ListViewItem lvi = new ListViewItem();
-                lvi.Text = product.ProductName;
-                lvi.SubItems.AddRange(new string[] { product.Category, product.Price.ToString(), product.UnitsInStock.ToString(), product.UnitsOnOrder.ToString() });
-                lvi.Tag = new List<object> { product.SupplierId, product.ImageFile, product.ProductId };
-                listViewProducts.Items.Add(lvi);
-            }
-
 
         }
 
@@ -285,6 +264,17 @@ namespace GerdasSyhorna
             db.Products.Delete(ProductId: productId);
 
             listViewProducts.SelectedItems[0].Remove();
+        }
+
+        private void buttonShowSearch_Click(object sender, EventArgs e)
+        {
+            buttonShowSearch.Visible = false;
+            labelShowSearch.Visible = false;
+
+            labelSearch.Visible = true;
+            comboBoxSearch.Visible = true;
+            textBoxSearch.Visible = true;
+            buttonSearch.Visible = true;
         }
 
     }

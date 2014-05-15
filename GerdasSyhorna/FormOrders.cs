@@ -16,9 +16,8 @@ namespace GerdasSyhorna
         public FormOrders()
         {
             InitializeComponent();
-            buttonTreated.BackColor = Color.LightGreen;
-            buttonUntreated.BackColor = Color.LightGreen;
             buttonRemoveOrder.BackColor = Color.LightSalmon;
+            buttonEndOrder.BackColor = Color.LightGreen;
 
             var db = Database.OpenConnection(Resources.connectionString);
 
@@ -53,6 +52,12 @@ namespace GerdasSyhorna
 
         private void buttonRemoveOrder_Click(object sender, EventArgs e)
         {
+            if (treeViewOrders.SelectedNode == null)
+            {
+                return;
+            }
+
+            MessageBox.Show("Är du säker på att du vill ta bort ordern?", "", MessageBoxButtons.YesNo);
             Order.RemoveOrder((int)treeViewOrders.SelectedNode.Tag);
             treeViewOrders.SelectedNode.Remove();
         }
@@ -68,18 +73,20 @@ namespace GerdasSyhorna
         }
 
 
-        private void buttonUntreated_Click(object sender, EventArgs e)
+
+        private void buttonEndOrder_Click(object sender, EventArgs e)
         {
-            Order.ChangeStatus((int)treeViewOrders.SelectedNode.Tag, "Obehandlad");
-            treeViewOrders.SelectedNode.Text = treeViewOrders.SelectedNode.Text.Replace("Behandlad", "Obehandlad");
-        }
+            if (treeViewOrders.SelectedNode == null)
+            {
+                return;
+            }
 
+            DialogResult result = MessageBox.Show("Är du säker på att du vill avsluta ordern?", "", MessageBoxButtons.YesNo);
 
-
-        private void buttonTreated_Click_1(object sender, EventArgs e)
-        {
-            Order.ChangeStatus((int)treeViewOrders.SelectedNode.Tag, "Behandlad");
-            treeViewOrders.SelectedNode.Text = treeViewOrders.SelectedNode.Text.Replace("Obehandlad", "Behandlad");
+            if (result == DialogResult.No)
+            {
+                return;
+            }
         }
 
       
