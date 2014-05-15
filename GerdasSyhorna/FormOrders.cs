@@ -16,6 +16,10 @@ namespace GerdasSyhorna
         public FormOrders()
         {
             InitializeComponent();
+            buttonTreated.BackColor = Color.LightGreen;
+            buttonUntreated.BackColor = Color.LightGreen;
+            buttonRemoveOrder.BackColor = Color.LightSalmon;
+
             var db = Database.OpenConnection(Resources.connectionString);
 
             var orders = db.SP_OrdersWithCustomers();
