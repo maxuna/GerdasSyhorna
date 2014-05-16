@@ -73,7 +73,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormCustomer";
-            this.Text = "FormCustomer";
+            this.Text = "Gerdas Syhörna";
             this.ResumeLayout(false);
             this.PerformLayout();
 

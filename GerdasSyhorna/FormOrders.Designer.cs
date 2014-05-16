@@ -121,7 +121,7 @@
             this.Controls.Add(this.treeViewOrders);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormOrders";
-            this.Text = "FormOrders";
+            this.Text = "Ordrar";
             this.Activated += new System.EventHandler(this.FormOrders_Activated);
             this.Load += new System.EventHandler(this.FormOrders_Load);
             this.groupBox1.ResumeLayout(false);

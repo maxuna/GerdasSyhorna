@@ -210,7 +210,7 @@
             this.Controls.Add(this.textBoxName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormProduct";
-            this.Text = "FormAddProduct";
+            this.Text = "Lägg till en produkt";
             this.Load += new System.EventHandler(this.FormProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
