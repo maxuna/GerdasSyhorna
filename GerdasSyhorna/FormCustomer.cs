@@ -21,7 +21,7 @@ namespace GerdasSyhorna
         Label antal = new Label();
         int yled = 0;
         List<int> amountItems = new List<int>();
-        int totalPrice = 0;
+        double totalPrice = 0;
         string namnVarukorg = "";
        
         public FormCustomer()
@@ -63,7 +63,7 @@ namespace GerdasSyhorna
                 ((Products)Products[i]).Controls.Add(Products[i].pictureBoxes);
                 (Products[i].pictureBoxes).Location = new Point(5, 5);
                 (Products[i].pictureBoxes).Size = new Size(200, 200);
-                //((PictureBox)pictureBoxes[i]).Image = ImageConverter.ImageFromByteArray(item.imageFile);
+                //(Products[i].pictureBoxes).Image = ImageConverter.ImageFromByteArray(Products[i].imageFile);
                 (Products[i].pictureBoxes).BorderStyle = BorderStyle.FixedSingle;
 
                 ((Products)Products[i]).Controls.Add(Products[i].descriptionLabel);
@@ -110,17 +110,19 @@ namespace GerdasSyhorna
             {
                 varukorg[0].Text = (Products[(int)index]).antalNumeric.Value.ToString() + "x " +  (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
                 amountItems.Add((int)index);
-                //totalPrice = ((Products[(int)index]).antalNumeric.Value) * ((Products[(int)index]).price);
+                totalPrice += ((int)(Products[(int)index]).antalNumeric.Value) * ((double)(Products[(int)index]).price);
+                
             }
             else
             {
                 if (amountItems.Contains((int)index))
                 {
                    int i = amountItems.IndexOf((int)index);
-                   Products[i].antalNumeric.Value++; 
+                   Products[(int)index].antalNumeric.Value++;
                    varukorg[i].Text = (Products[(int)index]).antalNumeric.Value.ToString() + "x " + (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
-
-                    
+                   totalPrice += (double)Products[(int)index].price;
+                   Console.WriteLine();
+                   
                 }
                 else
                 {
@@ -130,13 +132,15 @@ namespace GerdasSyhorna
                     varukorg[varukorg.Count-1].Text = (Products[(int)index]).antalNumeric.Value.ToString() + "x " + (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
                     varukorg[varukorg.Count-1].Size = new Size(462, 15);
                     varukorg[varukorg.Count-1].ReadOnly = true;
-                    varukorg[varukorg.Count - 1].Location = new Point(0,yled);
+                    varukorg[varukorg.Count - 1].Location = new Point(0,yled); 
+                    totalPrice += ((int)(Products[varukorg.Count - 1]).antalNumeric.Value) * ((double)(Products[varukorg.Count - 1]).price);
                     yled += 25;
-                    amountItems.Add((int)index); 
+                    amountItems.Add((int)index);
+                   
                 }
             }
 
-            
+            totalPriceLabel.Text ="Totalt pris: " + totalPrice.ToString() + "Kr";
 
 
 
