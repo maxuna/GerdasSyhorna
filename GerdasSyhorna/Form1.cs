@@ -27,12 +27,12 @@ namespace GerdasSyhorna
             FormCustomer formCustomer = new FormCustomer();
             formCustomer.Show();
 
-            //Order order = new Order();
+            
             //Dictionary<int, Tuple<short, byte>> orderData = new Dictionary<int, Tuple<short, byte>>();
             //orderData.Add(1, new Tuple<short, byte>(10, 50));
             //orderData.Add(6, new Tuple<short, byte>(25, 29));
 
-            //order.CreateOrder(1, DateTime.Now, orderData);
+            //Order.CreateOrder(10, DateTime.Now, orderData);
             
             
             InitializeComponent();

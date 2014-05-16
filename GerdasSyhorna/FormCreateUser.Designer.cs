@@ -81,7 +81,7 @@
             this.textBoxLastname.Location = new System.Drawing.Point(27, 120);
             this.textBoxLastname.Name = "textBoxLastname";
             this.textBoxLastname.Size = new System.Drawing.Size(169, 20);
-            this.textBoxLastname.TabIndex = 2;
+            this.textBoxLastname.TabIndex = 1;
             // 
             // label3
             // 
@@ -97,7 +97,7 @@
             this.textBoxTelephone.Location = new System.Drawing.Point(27, 177);
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(169, 20);
-            this.textBoxTelephone.TabIndex = 4;
+            this.textBoxTelephone.TabIndex = 2;
             // 
             // label4
             // 
@@ -113,7 +113,7 @@
             this.textBoxEmail.Location = new System.Drawing.Point(27, 291);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(169, 20);
-            this.textBoxEmail.TabIndex = 6;
+            this.textBoxEmail.TabIndex = 4;
             // 
             // label6
             // 
@@ -129,7 +129,7 @@
             this.textBoxAdress.Location = new System.Drawing.Point(27, 234);
             this.textBoxAdress.Name = "textBoxAdress";
             this.textBoxAdress.Size = new System.Drawing.Size(169, 20);
-            this.textBoxAdress.TabIndex = 10;
+            this.textBoxAdress.TabIndex = 3;
             // 
             // label7
             // 
@@ -145,7 +145,7 @@
             this.textBoxUsername.Location = new System.Drawing.Point(27, 348);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(169, 20);
-            this.textBoxUsername.TabIndex = 12;
+            this.textBoxUsername.TabIndex = 5;
             // 
             // label8
             // 
@@ -172,7 +172,7 @@
             this.buttonCreateUser.Location = new System.Drawing.Point(176, 471);
             this.buttonCreateUser.Name = "buttonCreateUser";
             this.buttonCreateUser.Size = new System.Drawing.Size(108, 23);
-            this.buttonCreateUser.TabIndex = 17;
+            this.buttonCreateUser.TabIndex = 7;
             this.buttonCreateUser.Text = "Skapa användare";
             this.buttonCreateUser.UseVisualStyleBackColor = true;
             this.buttonCreateUser.Click += new System.EventHandler(this.buttonCreateUser_Click);
@@ -216,7 +216,7 @@
             this.textBoxPassword.Location = new System.Drawing.Point(27, 407);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(169, 20);
-            this.textBoxPassword.TabIndex = 21;
+            this.textBoxPassword.TabIndex = 6;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // checkBoxShowPw
@@ -253,7 +253,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxFirstname);
             this.Name = "FormCreateUser";
-            this.Text = "Användarkonto";
+            this.Text = "Skapa användarkonto";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

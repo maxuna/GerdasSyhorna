@@ -20,7 +20,7 @@ namespace GerdasSyhorna
         
         
 
-        
+        // productQuantityDiscount är en Dictionary<productId, Tuple<antal av produkten, rea på produkten>>
         public static void CreateOrder(int customerId, DateTime orderDate, Dictionary<int, Tuple<short, byte>> productQuantityDiscount)
         {
             var database = Database.OpenConnection(Resources.connectionString);

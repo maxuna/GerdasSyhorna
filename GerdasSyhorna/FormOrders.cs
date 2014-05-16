@@ -25,11 +25,8 @@ namespace GerdasSyhorna
 
             foreach (var order in orders)
             {
-                if (order.Status != null)
-                treeViewOrders.Nodes.Add(order.FirstName + " " + order.LastName + ":   " + order.Status);
-
-                else
-                    treeViewOrders.Nodes.Add(order.FirstName + " " + order.LastName + ":   Obehandlad order");
+                if (order.Status != "behandlad")
+                treeViewOrders.Nodes.Add(order.FirstName + " " + order.LastName);
 
                 var orderDetails = db.Orderdetails.FindAllBy(OrderId: order.OrderId);
                 treeViewOrders.Nodes[treeViewOrders.Nodes.Count - 1].Tag = order.OrderId;
@@ -87,6 +84,10 @@ namespace GerdasSyhorna
             {
                 return;
             }
+
+
+            Order.ChangeStatus((int)treeViewOrders.SelectedNode.Tag, "behandlad");
+            treeViewOrders.SelectedNode.Remove();
         }
 
       

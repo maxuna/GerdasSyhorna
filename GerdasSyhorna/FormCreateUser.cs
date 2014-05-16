@@ -21,7 +21,7 @@ namespace GerdasSyhorna
         {
 
 #region Passwordvariation Check
-            byte containsLetter = 0, containsDigit = 0, containsSymbol = 0;
+            byte containsLetter = 0, containsDigit = 0, containsSymbol = 0, containsUpperLetter = 0;
 
             foreach (char letter in textBoxPassword.Text)
             {
@@ -38,6 +38,11 @@ namespace GerdasSyhorna
                 else if (Char.IsLetter(letter) && containsLetter == 0)
                 {
                     containsLetter++;
+                }
+
+                else if (Char.IsUpper(letter) && containsUpperLetter == 0)
+                {
+                    containsUpperLetter++;
                 }
             }
 
