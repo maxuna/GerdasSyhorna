@@ -34,7 +34,8 @@ namespace GerdasSyhorna
                 foreach (var detail in orderDetails)
                 {
                     var product = db.Products.FindAllBy(ProductId: detail.ProductId).First();
-                    treeViewOrders.Nodes[treeViewOrders.Nodes.Count - 1].Nodes.Add( detail.Quantity + " st " + product.ProductName);
+                    treeViewOrders.Nodes[treeViewOrders.Nodes.Count - 1].Nodes.Add(detail.Quantity + " st " + product.ProductName);
+                    
                 }
             }
 
@@ -49,7 +50,7 @@ namespace GerdasSyhorna
 
         private void buttonRemoveOrder_Click(object sender, EventArgs e)
         {
-            if (treeViewOrders.SelectedNode == null)
+            if (treeViewOrders.SelectedNode == null || treeViewOrders.SelectedNode.Tag == null)
             {
                 return;
             }
@@ -73,18 +74,26 @@ namespace GerdasSyhorna
 
         private void buttonEndOrder_Click(object sender, EventArgs e)
         {
-            if (treeViewOrders.SelectedNode == null)
+            if (treeViewOrders.SelectedNode == null || treeViewOrders.SelectedNode.Tag == null)
             {
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Är du säker på att du vill avsluta ordern?", "", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Är du säker på att du vill utföra ordern?", "", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.No)
             {
                 return;
             }
 
+             
+
+             //Tar bort varor ifrån lagret utifrån ordern
+             if (Order.ImplementOrder((int)treeViewOrders.SelectedNode.Tag) == false)
+             {
+                 MessageBox.Show("Det finns inte tillräckligt med varor i lagret för att utföra ordern");
+                 return;
+             }
 
             Order.ChangeStatus((int)treeViewOrders.SelectedNode.Tag, "behandlad");
             treeViewOrders.SelectedNode.Remove();

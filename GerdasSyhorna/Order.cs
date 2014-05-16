@@ -45,6 +45,32 @@ namespace GerdasSyhorna
             var db = Database.OpenConnection(Resources.connectionString);
             db.Orders.UpdateByOrderId(OrderId: id, Status: status);
         }
+
+        //Tar bort varor ifrån lagret utifrån ordern
+        public static bool ImplementOrder(int orderId)
+        {
+            var db = Database.OpenConnection(Resources.connectionString);
+            var orderDetails = db.OrderDetails.FindAllBy(OrderId: orderId);
+
+            foreach (var detail in orderDetails)
+            {
+                //lagerantalet är mindre än var orderdetailen krävde
+                if (db.SP_UnitsInStockDifference(detail.ProductId, detail.Quantity, 0).ReturnValue == 0)
+                {
+                    return false;
+                }             
+            }
+
+            foreach (var detail in orderDetails)
+            {
+                //lagerantalet är mindre än var orderdetailen krävde
+                db.RemoveUnitsInStock(detail.ProductId, detail.Quantity);
+            }
+
+
+
+            return true;
+        }
     }
 
     class OrderDetails

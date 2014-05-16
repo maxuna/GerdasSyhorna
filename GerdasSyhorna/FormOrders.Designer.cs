@@ -33,8 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonEndOrder = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,11 +59,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 34);
+            this.label1.Location = new System.Drawing.Point(24, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 48);
+            this.label1.Size = new System.Drawing.Size(175, 64);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Markera en order för att\r\nta bort den eller ändra\r\ndess status";
+            this.label1.Text = "Markera en order\r\n(personens namn) för att\r\nta bort den eller ändra\r\ndess status";
             // 
             // buttonEndOrder
             // 
@@ -71,7 +71,7 @@
             this.buttonEndOrder.Name = "buttonEndOrder";
             this.buttonEndOrder.Size = new System.Drawing.Size(166, 23);
             this.buttonEndOrder.TabIndex = 4;
-            this.buttonEndOrder.Text = "Avsluta order";
+            this.buttonEndOrder.Text = "Utför order";
             this.buttonEndOrder.UseVisualStyleBackColor = true;
             this.buttonEndOrder.Click += new System.EventHandler(this.buttonEndOrder_Click);
             // 
@@ -88,17 +88,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 64);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Om en order avslutas\r\nsparas den och de \r\nbeställda varorna räknas\r\nbort ifrån la" +
-    "gerantalet";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -109,6 +98,17 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Om en order tas bort \r\nsparas den inte och\r\nde beställda varorna\r\nräknas inte bor" +
     "t ifrån\r\nlagerantalet";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(24, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(181, 64);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Om en order utförs\r\nsparas den och de \r\nbeställda varorna räknas\r\nbort ifrån lage" +
+    "rantalet";
             // 
             // FormOrders
             // 
