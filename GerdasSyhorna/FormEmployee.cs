@@ -60,7 +60,7 @@ namespace GerdasSyhorna
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = product.ProductName;
-                lvi.SubItems.AddRange(new string[] { product.Category, product.Price.ToString(), product.UnitsInStock.ToString(), product.UnitsOnOrder.ToString()});
+                lvi.SubItems.AddRange(new string[] { product.Category, product.Price.ToString(), product.UnitsInStock.ToString(), product.UnitsOnOrder.ToString(), product.Description});
                 lvi.Tag = new List<object> {product.SupplierId, product.ImageFile, product.ProductId};
                 listViewProducts.Items.Add(lvi);
             }
@@ -241,6 +241,25 @@ namespace GerdasSyhorna
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
+            listViewProducts.Items.Clear();
+            var db = Database.OpenConnection(Resources.connectionString);
+
+            dynamic table;
+
+            if (textBoxSearch.Text == "")
+                table = db.Products.All();
+
+            else
+                table = db.SP_ProductSearch(textBoxSearch.Text, comboBoxSearch.Text);
+
+            foreach (var product in table)
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = product.ProductName;
+                lvi.SubItems.AddRange(new string[] { product.Category, product.Price.ToString(), product.UnitsInStock.ToString(), product.UnitsOnOrder.ToString() });
+                lvi.Tag = new List<object> { product.SupplierId, product.ImageFile, product.ProductId };
+                listViewProducts.Items.Add(lvi);
+            }
 
         }
 

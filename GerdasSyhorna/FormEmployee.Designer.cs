@@ -55,6 +55,7 @@
             this.buttonRemoveProduct = new System.Windows.Forms.Button();
             this.buttonShowSearch = new System.Windows.Forms.Button();
             this.labelShowSearch = new System.Windows.Forms.Label();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +68,8 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader5,
+            this.columnHeader6});
             this.listViewProducts.FullRowSelect = true;
             this.listViewProducts.GridLines = true;
             this.listViewProducts.Location = new System.Drawing.Point(12, 53);
@@ -317,6 +319,11 @@
             this.labelShowSearch.Text = "Klicka på förstoringsglaset för\r\natt söka på produkter utifrån\r\nspeciella kriteri" +
     "er";
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Beskrivning";
+            this.columnHeader6.Width = 120;
+            // 
             // FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,5 +390,6 @@
         private System.Windows.Forms.Button buttonRemoveProduct;
         private System.Windows.Forms.Button buttonShowSearch;
         private System.Windows.Forms.Label labelShowSearch;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }

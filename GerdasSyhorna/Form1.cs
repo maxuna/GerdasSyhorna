@@ -21,11 +21,11 @@ namespace GerdasSyhorna
         public Form1()
         {
 
-            FormEmployee formEmployee = new FormEmployee();
-            formEmployee.Show();
+            //FormEmployee formEmployee = new FormEmployee();
+            //formEmployee.Show();
 
-            FormCustomer formCustomer = new FormCustomer();
-            formCustomer.Show();
+            //FormCustomer formCustomer = new FormCustomer();
+            //formCustomer.Show();
 
             
             //Dictionary<int, Tuple<short, byte>> orderData = new Dictionary<int, Tuple<short, byte>>();
@@ -63,8 +63,17 @@ namespace GerdasSyhorna
                     }
                     else
                     {
-                        FormEmployee formEmployee = new FormEmployee();
-                        formEmployee.Show();
+                        if (MessageBox.Show("Vill du gå in i adminstrationsmenyn?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            FormEmployee formEmployee = new FormEmployee();
+                            formEmployee.Show();
+                        }
+                        else
+                        {
+                            FormCustomer formCustomer = new FormCustomer();
+                            formCustomer.Show();
+                        }
+                        
                     }
                     this.Hide();
                 }
