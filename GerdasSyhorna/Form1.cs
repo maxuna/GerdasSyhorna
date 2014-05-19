@@ -24,8 +24,8 @@ namespace GerdasSyhorna
             //FormEmployee formEmployee = new FormEmployee();
             //formEmployee.Show();
 
-            //FormCustomer formCustomer = new FormCustomer();
-            //formCustomer.Show();
+            FormCustomer formCustomer = new FormCustomer();
+            formCustomer.Show();
 
             
             //Dictionary<int, Tuple<short, byte>> orderData = new Dictionary<int, Tuple<short, byte>>();

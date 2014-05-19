@@ -17,6 +17,7 @@ namespace GerdasSyhorna
         public byte[] imageFile;
         public object supplierId;
         public string description;
+       
 
 
 
@@ -40,7 +41,7 @@ namespace GerdasSyhorna
             this.price = price;
             this.unitsInStock = unitsInStock;
             this.unitsInOrder = unitsInOrder;
-            //this.imageFile = ;
+            this.imageFile = null;
             this.description = description;
         }
 

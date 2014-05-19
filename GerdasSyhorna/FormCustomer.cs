@@ -63,8 +63,17 @@ namespace GerdasSyhorna
                 ((Products)Products[i]).Controls.Add(Products[i].pictureBoxes);
                 (Products[i].pictureBoxes).Location = new Point(5, 5);
                 (Products[i].pictureBoxes).Size = new Size(200, 200);
-                //(Products[i].pictureBoxes).Image = ImageConverter.ImageFromByteArray(Products[i].imageFile);
+                if ((Products[i].imageFile) == null)
+                {
+                    (Products[i].pictureBoxes).Image = Image.FromFile("../../Images/bildsaknas.png");
+                }
+                else
+                {
+                    (Products[i].pictureBoxes).Image = ImageConverter.ImageFromByteArray(Products[i].imageFile);
+                }
+    
                 (Products[i].pictureBoxes).BorderStyle = BorderStyle.FixedSingle;
+                (Products[i].pictureBoxes).SizeMode = PictureBoxSizeMode.Zoom;
 
                 ((Products)Products[i]).Controls.Add(Products[i].descriptionLabel);
                 (Products[i].descriptionLabel).Width = 340;
