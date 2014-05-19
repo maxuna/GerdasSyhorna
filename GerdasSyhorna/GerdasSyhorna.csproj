@@ -186,7 +186,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Images\404-imagenotfound.jpg" />
+    <Content Include="Images\bildsaknas.png" />
     <Content Include="Images\Buy_Button.png" />
     <None Include="Resources\images.jpg" />
   </ItemGroup>

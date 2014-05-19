@@ -22,7 +22,11 @@ namespace GerdasSyhorna
         int yled = 0;
         List<int> amountItems = new List<int>();
         double totalPrice = 0;
-        string namnVarukorg = "";
+        string[] sortVariables = new[] {"Sortera efter...", "Lägsta Pris", "Högsta Pris" };
+        Products bubbeltemp;
+        bool sortDone = false;
+        
+
        
         public FormCustomer()
         {
@@ -38,9 +42,6 @@ namespace GerdasSyhorna
             {
                 Products p = new Products(item.ProductId, item.ProductName, item.Category, item.Price, item.UnitsInStock, item.UnitsOnOrder, item.SupplierId, item.ImageFile, item.Description);
                 Products.Add(p);
-               
-                
-
                 flowLayoutPanel1.Controls.Add(((Products)Products[i]));
                 (((Products)Products[i]).Height) = 200;
                 (((Products)Products[i]).Width) = 900;
@@ -73,7 +74,6 @@ namespace GerdasSyhorna
                 }
     
                 (Products[i].pictureBoxes).BorderStyle = BorderStyle.FixedSingle;
-                (Products[i].pictureBoxes).SizeMode = PictureBoxSizeMode.Zoom;
 
                 ((Products)Products[i]).Controls.Add(Products[i].descriptionLabel);
                 (Products[i].descriptionLabel).Width = 340;
@@ -109,6 +109,9 @@ namespace GerdasSyhorna
             varukorg[0].Size = new Size(462, 15);
             varukorg[0].ReadOnly = true;
             yled += 25;
+
+            sortComboBox.DataSource = sortVariables;
+            
 
         }
         public void buyButton_Click(object sender, EventArgs e)
@@ -155,6 +158,67 @@ namespace GerdasSyhorna
 
              
         }
+
+        private void sortComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            sortDone = false;
+            switch (sortComboBox.SelectedItem.ToString())
+            {
+                case "Sortera efter...":
+                    for (int i = 0; i < Products.Count; i++)
+                    {
+                        flowLayoutPanel1.Controls.Add(((Products)Products[i]));
+                    }                    
+                    break;
+
+                case "Lägsta Pris":
+                    while (sortDone == false)
+                    {
+                        sortDone = true;
+                        for (int i = 0; i < Products.Count - 1; i++)
+                        {
+                            if ((double)(Products[i].price) > (double)(Products[i + 1].price))
+                            {
+                                bubbeltemp = Products[i];
+                                Products[i] = Products[i + 1];
+                                Products[i + 1] = bubbeltemp;
+
+                                sortDone = false;
+                            }
+                            flowLayoutPanel1.Controls.Add(((Products)Products[i]));
+                            Products[i].buyButtons.Tag = i;
+                        }
+
+                    }
+                        break;
+                case "Högsta Pris":
+                        while (sortDone == false)
+                        {
+                            sortDone = true;
+                            for (int i = 0; i < Products.Count - 1; i++)
+                            {
+                                if ((double)(Products[i].price) < (double)(Products[i + 1].price))
+                                {
+                                    bubbeltemp = Products[i];
+                                    Products[i] = Products[i + 1];
+                                    Products[i + 1] = bubbeltemp;
+
+                                    sortDone = false;
+                                }
+                                flowLayoutPanel1.Controls.Add(((Products)Products[i]));
+                                Products[i].buyButtons.Tag = i;
+                            }
+
+                        }
+                        break;
+
+                    
+            }
+        }
+
+        
+
+      
 
     }
 }
