@@ -123,33 +123,35 @@ namespace GerdasSyhorna
                 varukorg[0].Text = (Products[(int)index]).antalNumeric.Value.ToString() + "x " +  (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
                 amountItems.Add((int)index);
                 totalPrice += ((int)(Products[(int)index]).antalNumeric.Value) * ((double)(Products[(int)index]).price);
-                
             }
             else
             {
-                if (amountItems.Contains((int)index))
+                for (int i = 0; i < Products.Count; i++)
                 {
-                   int i = amountItems.IndexOf((int)index);
-                   Products[(int)index].antalNumeric.Value++;
-                   varukorg[i].Text = (Products[(int)index]).antalNumeric.Value.ToString() + "x " + (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
-                   totalPrice += (double)Products[(int)index].price;
-                   Console.WriteLine();
-                   
+                    string test = (Products[(int)index]).antalNumeric.Value + 1.ToString() + "x " +  (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
+                    if (test == varukorg[i].Text)
+                    {
+     
+                        Products[(int)index].antalNumeric.Value++;
+                        varukorg[i].Text = (Products[(int)index]).antalNumeric.Value.ToString() + "x " + (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
+                        totalPrice += (double)Products[(int)index].price;
+                    }
+                    else
+                    {
+                        TextBox vl = new TextBox();
+                        varukorg.Add(vl);
+                        panel1.Controls.Add((varukorg[varukorg.Count - 1]));
+                        varukorg[varukorg.Count - 1].Text = (Products[(int)index]).antalNumeric.Value.ToString() + "x " + (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
+                        varukorg[varukorg.Count - 1].Size = new Size(462, 15);
+                        varukorg[varukorg.Count - 1].ReadOnly = true;
+                        varukorg[varukorg.Count - 1].Location = new Point(0, yled);
+                        totalPrice += ((int)(Products[varukorg.Count - 1]).antalNumeric.Value) * ((double)(Products[varukorg.Count - 1]).price);
+                        yled += 25;
+                        amountItems.Add((int)index);
+                    }
                 }
-                else
-                {
-                    TextBox vl = new TextBox();
-                    varukorg.Add(vl);
-                    panel1.Controls.Add((varukorg[varukorg.Count-1]));
-                    varukorg[varukorg.Count-1].Text = (Products[(int)index]).antalNumeric.Value.ToString() + "x " + (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
-                    varukorg[varukorg.Count-1].Size = new Size(462, 15);
-                    varukorg[varukorg.Count-1].ReadOnly = true;
-                    varukorg[varukorg.Count - 1].Location = new Point(0,yled); 
-                    totalPrice += ((int)(Products[varukorg.Count - 1]).antalNumeric.Value) * ((double)(Products[varukorg.Count - 1]).price);
-                    yled += 25;
-                    amountItems.Add((int)index);
-                   
-                }
+            
+
             }
 
             totalPriceLabel.Text ="Totalt pris: " + totalPrice.ToString() + "Kr";
@@ -186,7 +188,7 @@ namespace GerdasSyhorna
                                 sortDone = false;
                             }
                             flowLayoutPanel1.Controls.Add(((Products)Products[i]));
-                            Products[i].buyButtons.Tag = i;
+                            //Products[i].buyButtons.Tag = i;
                         }
 
                     }
@@ -206,7 +208,7 @@ namespace GerdasSyhorna
                                     sortDone = false;
                                 }
                                 flowLayoutPanel1.Controls.Add(((Products)Products[i]));
-                                Products[i].buyButtons.Tag = i;
+                               // Products[i].buyButtons.Tag = i;
                             }
 
                         }
