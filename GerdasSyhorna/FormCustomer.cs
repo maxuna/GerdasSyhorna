@@ -25,7 +25,8 @@ namespace GerdasSyhorna
         string[] sortVariables = new[] {"Sortera efter...", "Lägsta Pris", "Högsta Pris" };
         Products bubbeltemp;
         bool sortDone = false;
-        
+        bool done = false;
+        string test = "";
 
        
         public FormCustomer()
@@ -99,7 +100,7 @@ namespace GerdasSyhorna
                 (Products[i].antalNumeric).Location = new Point(750, 40);
                 (Products[i].antalNumeric).Value = 1;
                 (Products[i].antalNumeric).Minimum = 1;
-                (Products[i].antalNumeric).Maximum = item.UnitsInStock;
+                //(Products[i].antalNumeric).Maximum = item.UnitsInStock;
 
                 i++;
             }
@@ -120,47 +121,62 @@ namespace GerdasSyhorna
         {
             Button btn = (Button)sender;
             var index = btn.Tag;
-            if (amountItems.Count == 0)
+            i = 0;
+            done = false;
+            if (varukorg[0].Text == "Inga varor i kundvagnen.")
             {
+                if (Products[(int)index].antalNumeric.Value >= Products[(int)index].unitsInStock)
+                {
+                    MessageBox.Show("Det finns inte så många varor på lagret. Kontakta personal under arbetstid eller skicka ett mail på gerdassyhorna@gmail.com för beställning av varan.");
+                }
                 varukorg[0].Text = (Products[(int)index]).antalNumeric.Value.ToString() + "x " +  (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
-                amountItems.Add((int)index);
                 totalPrice += ((int)(Products[(int)index]).antalNumeric.Value) * ((double)(Products[(int)index]).price);
             }
             else
             {
-                for (int i = 0; i < Products.Count; i++)
+                while (done == false && i < varukorg.Count)
                 {
-                    string test = (Products[(int)index]).antalNumeric.Value + 1.ToString() + "x " +  (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
+                    test = ((Products[(int)index]).antalNumeric.Value).ToString() + "x " + (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
                     if (test == varukorg[i].Text)
                     {
-     
                         Products[(int)index].antalNumeric.Value++;
+                        if (Products[(int)index].antalNumeric.Value >= Products[(int)index].unitsInStock)
+                        {
+                            MessageBox.Show("Det finns inte så många varor på lagret. Kontakta personal under arbetstid eller skicka ett mail på gerdassyhorna@gmail.com för beställning av varan.");
+                        }
                         varukorg[i].Text = (Products[(int)index]).antalNumeric.Value.ToString() + "x " + (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
                         totalPrice += (double)Products[(int)index].price;
+                        done = true;
+                        Console.WriteLine();
                     }
                     else
                     {
-                        TextBox vl = new TextBox();
-                        varukorg.Add(vl);
-                        panel1.Controls.Add((varukorg[varukorg.Count - 1]));
-                        varukorg[varukorg.Count - 1].Text = (Products[(int)index]).antalNumeric.Value.ToString() + "x " + (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
-                        varukorg[varukorg.Count - 1].Size = new Size(462, 15);
-                        varukorg[varukorg.Count - 1].ReadOnly = true;
-                        varukorg[varukorg.Count - 1].Location = new Point(0, yled);
-                        totalPrice += ((int)(Products[varukorg.Count - 1]).antalNumeric.Value) * ((double)(Products[varukorg.Count - 1]).price);
-                        yled += 25;
-                        amountItems.Add((int)index);
+                        i++;
+                        if (done == false && i == varukorg.Count)
+                        {
+                            TextBox vl = new TextBox();
+                            varukorg.Add(vl);
+                            panel1.Controls.Add((varukorg[varukorg.Count - 1]));
+                            if (Products[(int)index].antalNumeric.Value >= Products[(int)index].unitsInStock)
+                            {
+                                MessageBox.Show("Det finns inte så många varor på lagret. Kontakta personal under arbetstid eller skicka ett mail på gerdassyhorna@gmail.com för beställning av varan.");
+                            }
+                            varukorg[varukorg.Count - 1].Text = (Products[(int)index]).antalNumeric.Value.ToString() + "x " + (Products[(int)index]).nameLabel.Text + "\t" + (Products[(int)index]).price.ToString() + "Kr";
+                            varukorg[varukorg.Count - 1].Size = new Size(462, 15);
+                            varukorg[varukorg.Count - 1].ReadOnly = true;
+                            varukorg[varukorg.Count - 1].Location = new Point(0, yled);
+                            totalPrice += ((int)(Products[varukorg.Count - 1]).antalNumeric.Value) * ((double)(Products[varukorg.Count - 1]).price);
+                            yled += 25;
+                            done = true;
+                        }
                     }
+      
                 }
             
 
             }
 
-            totalPriceLabel.Text ="Totalt pris: " + totalPrice.ToString() + "Kr";
-
-
-
-             
+            totalPriceLabel.Text ="Totalt pris: " + totalPrice.ToString() + "Kr";      
         }
 
         private void sortComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -189,11 +205,13 @@ namespace GerdasSyhorna
 
                                 sortDone = false;
                             }
-                            flowLayoutPanel1.Controls.Add(((Products)Products[i]));
-                            //Products[i].buyButtons.Tag = i;
                         }
 
                     }
+                    for (int i = 0; i < Products.Count; i++)
+                    {
+                        flowLayoutPanel1.Controls.Add(((Products)Products[i]));
+                    }        
                         break;
                 case "Högsta Pris":
                         while (sortDone == false)
@@ -209,11 +227,13 @@ namespace GerdasSyhorna
 
                                     sortDone = false;
                                 }
-                                flowLayoutPanel1.Controls.Add(((Products)Products[i]));
-                               // Products[i].buyButtons.Tag = i;
                             }
 
                         }
+                        for (int i = 0; i < Products.Count; i++)
+                        {
+                            flowLayoutPanel1.Controls.Add(((Products)Products[i]));
+                        }        
                         break;
 
                     
