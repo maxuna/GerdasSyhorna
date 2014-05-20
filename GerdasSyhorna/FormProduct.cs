@@ -133,21 +133,21 @@ namespace GerdasSyhorna
                 binaryImage = ImageConverter.ToByteArray(pictureBox1.BackgroundImage);
 
 
-            
-            dynamic selectedSupplier; 
+
+            dynamic selectedSupplier = null;
 
             if (comboBoxSupplier.SelectedItem.Equals("Ingen"))
                 selectedSupplier = null;
 
             else
-               selectedSupplier = ((comboBoxSupplier.SelectedItem as ComboBoxItem).Value as dynamic);
+               selectedSupplier = ((comboBoxSupplier.SelectedItem as ComboBoxItem).Value as dynamic).SupplierId;
 
 
 
             //ersätter produkten i databasen
                 database.Products.UpdateByProductId(ProductId: id, ProductName: textBoxName.Text,
                 Category: textBoxCategory.Text, Price: (float)numericUpDownPrice.Value, UnitsInStock: (short)numericUpDownUnitsInStock.Value,
-                ImageFile: binaryImage, SupplierId: selectedSupplier.SupplierId, Description: textBoxDescription.Text);
+                ImageFile: binaryImage, SupplierId: selectedSupplier, Description: textBoxDescription.Text);
 
                 this.Dispose();
         }
