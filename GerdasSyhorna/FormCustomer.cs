@@ -49,10 +49,10 @@ namespace GerdasSyhorna
                 (((Products)Products[i]).BorderStyle) = BorderStyle.Fixed3D;
 
                 ((Products)Products[i]).Controls.Add(Products[i].buyButtons);
-                (Products[i].buyButtons).Height = 75;
-                (Products[i].buyButtons).Width = 140;
-                (Products[i].buyButtons).Location = new Point(750, 115);
-                (Products[i].buyButtons).Image = Image.FromFile("../../Images/Buy_Button.png");
+                (Products[i].buyButtons).Height = 59;
+                (Products[i].buyButtons).Width = 166;
+                (Products[i].buyButtons).Location = new Point(724, 131);
+                (Products[i].buyButtons).Image = Image.FromFile("../../Images/kop_knapp.png");
                 (Products[i].buyButtons).Tag = i;
                 (Products[i].buyButtons).Click += new EventHandler(buyButton_Click);
 
